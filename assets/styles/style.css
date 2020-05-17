@@ -1,10 +1,35 @@
 
-.carousel .carousel-item {
-  height: 14em;
+body { 
+    padding-top: 55px; 
 }
+
 .carousel .carousel-item > *:first-child {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
   height: inherit;
+}
+
+@media (min-width: 1281px) {
+    .carousel .carousel-item {
+        height: 25em; 
+    }
+}
+
+@media (max-width: 1280px) {
+    .carousel .carousel-item {
+        height: 20em; 
+    }
+}
+
+@media (max-width: 1024px) {
+    .carousel .carousel-item {
+        height: 15em; 
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel .carousel-item {
+        height: 10em; 
+    }
 }
