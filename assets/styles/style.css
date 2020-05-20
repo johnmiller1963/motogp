@@ -10,6 +10,18 @@ body {
   height: inherit;
 }
 
+.card {
+    border-color: orange;#
+}
+
+.card-title {
+    font-size: 1rem;
+}
+
+.card .card-img-top {
+    border-radius: 1.5%;
+}
+
 @media (min-width: 1281px) {
     .carousel .carousel-item {
         height: 28em; 
@@ -32,7 +44,7 @@ body {
     padding-top: 2em;
     }
     .max-height-text {
-        max-height: 265px;
+        max-height: 300px;
         overflow: auto;
         /* border: 1px solid grey; */
     }
@@ -46,7 +58,7 @@ body {
     padding-top: 1.5em;
     }
     .max-height-text {
-        max-height: 225px;
+        max-height: 285px;
         overflow: auto;
         /* border: 1px solid grey; */
     }
@@ -60,7 +72,7 @@ body {
     padding-top: 1em;
     }
     .max-height-text {
-        max-height: 200px;
+        max-height: 265px;
         overflow: auto;
         /*border: 1px solid grey; */
     }
