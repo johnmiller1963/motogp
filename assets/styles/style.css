@@ -11,15 +11,36 @@ body {
 }
 
 .card {
-    border-color: orange;#
+    border-color: orange;
 }
 
 .card-title {
     font-size: 1rem;
+    padding:5px;
 }
 
 .card .card-img-top {
     border-radius: 1.5%;
+}
+
+#resultsTable {
+    display: block;
+    margin: 1px;
+    max-height: 400px;
+    /*display: none; */
+}
+
+.table-padding {
+    padding: 1px;
+}
+
+.thead {
+    font-size: 0.8em;
+    background-color: lightgrey;
+}
+
+tr {
+    font-size: 0.8em;
 }
 
 @media (min-width: 1281px) {
