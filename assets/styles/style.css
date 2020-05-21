@@ -16,7 +16,7 @@ body {
 
 .card-title {
     font-size: 1rem;
-    padding:5px;
+    padding: 5px;
 }
 
 .card .card-img-top {
@@ -27,7 +27,14 @@ body {
     display: block;
     margin: 1px;
     max-height: 400px;
-    /*display: none; */
+}
+
+#btnDisplayResults {
+    margin-top: 15px;
+}
+
+#dataTable {
+    display: none;
 }
 
 .table-padding {
@@ -35,8 +42,15 @@ body {
 }
 
 .thead {
+    display: block;
     font-size: 0.8em;
     background-color: lightgrey;
+}
+
+table  tbody{
+  display:block;
+  height:200px;
+  overflow:auto;
 }
 
 tr {
@@ -83,6 +97,9 @@ tr {
         overflow: auto;
         /* border: 1px solid grey; */
     }
+    /* #btnDisplayResults {
+        margin-left: 50px;
+    } */
 }
 
 @media (max-width: 768px) {

@@ -219,14 +219,14 @@
                 Grand Prix motorcycles are purpose-built racing machines that are generally unavailable for purchase by the general public or able to be ridden legally on public roads. This contrasts with the various production-based categories of racing, such as the <a href="https://www.worldsbk.com/" target="_blank">Superbike World Championship</a> and the <a href="https://www.iomtt.com/" target="_blank">Isle of Man TT Races</a> that feature modified versions of road-going motorcycles available to the public.
                 The championship is currently divided into four classes: Moto Grand Prix, Moto2, Moto3 and MotoE. The first three classes use four-stroke engines, while the MotoE class (new in 2019) uses electric motors, much like the four-wheeler, single-seater all-electric racing series Formula E. The 2019 MotoGP season comprises 19 Grands Prix, with 12 held in Europe, three in Asia, two in the Americas, and one each in Australia and the Middle East.
                 </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+            <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
           </div>
           <div class="card mx-3">
             <img class="card-img-top img-fluid" src="assets/images/concentration.jpg" alt="Generic placeholder image" height="200px">
             <h2 class="card-title">Concentration!</h2>
             <p class="text-justify max-height-text px-2">Scroll down the page to see some statistics concerning the full race results across all <span id="yearsSince1949"></span> years of Grand Prix motorcycle racing.<br>The most successful rider in Grand Prix history is <a href="https://en.wikipedia.org/wiki/Giacomo_Agostini" target="_blank">Giacomo Agostini</a> with 15 titles and 122 race wins. In the top-flight series, Agostini holds the title record with eight, followed by active riders <a href="https://en.wikipedia.org/wiki/Valentino_Rossi" target="_blank">Valentino Rossi</a> with seven and <a href="https://en.wikipedia.org/wiki/Marc_Márquez" target="_blank">Marc Márquez</a> with six. As of 2019, Rossi holds the record for most top-flight race wins with 89.<br>
                 Without exception every single racer mentioned on this website is (or was) a dedicated and focused sports person. The majority started riding motorcycles at a very young age and fear is not a common word in any racers vocabulary, despite the risks clearly involved.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+            <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
           </div>
           <div class="card mx-3">
             <img class="card-img-top img-fluid" src="assets/images/physics101.jpg" alt="Generic placeholder image" height="200px">
@@ -249,12 +249,16 @@
                 Credit: Fiat Yamaha Team.<br>
                 According to Charles Falco, the University of Arizona's chair of condensed-matter physics and co-curator of the Guggenheim Museum's The Art of the Motorcycle exhibition, the initial physics lesson to be learned watching a racing bike hurtle into a tight turn is Newton's first law of motion: "Every object persists in its state of rest or uniform motion in a straight line unless it is compelled to change that state by forces impressed on it," explains Falco. To a rider, this means that the faster a motorcycle is going, the less it wants to turn. Converting a bike's kinetic energy from straight ahead to turning requires a negotiation with physics in a couple of ways. First, a rider pushes the handlebars slightly away from the direction of the turn. Because the wheels act as gyroscopes, this countersteering leans the bike in the opposite direction (into the turn), which puts the tires at an angle, narrowing what engineers call the contact patch and making the bike easier to turn. At the same time, the rider moves off the bike in the direction of the turn. The lean angle of the motorcycle shifts the center of gravity to the side, causing the bike to turn, while the weight redistribution lets the machine stay slightly more upright. At the point of maximum lean required to get through a turn at the highest possible speed, centrifugal force wants to pull the bike machine off the track, and the rider uses traction, gravity, and momentum to stay in the game. To explain why the machine moves at all, Falco invokes Newton's second law of motion: A force applied to an object will cause it to accelerate. "This will happen until the rider runs out of track, or other forces become nonnegligible, such as wind resistance," says Falco. On some tracks, grand prix motorcycles approaching tight turns must slow from more than 200 mph to around 40 mph. Friction on the brakes (primarily the front brakes) makes this possible. "All that excess energy has to be dissipated by the brakes in the form of heat," Falco says, thus bringing up the law of conservation of matter and energy. Some of this heat is transferred to the hydraulic-brake fluid, which can cause brakes to lose stopping power, with potentially disastrous consequences. Engineers use space age ceramic materials to avoid this problem, and riders become skilled at getting on and off the brakes quickly.
                 Successful race riding is a lot like paying taxes: You want to push the rules as far as you can without breaking them. There is a very fine line between optimum cornering and crashing, where outward, downward, and forward forces balance precisely. But rules are rules. "Speaking on behalf of physicists everywhere," Falco declares, "nothing that ever happens on a motorcycle breaks the laws of physics. In fact, motorcycles are excellent examples of just how well physics works."</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+            <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
           </div>
         </div>
 
+        <!-- <div class="d-flex"> -->
+            <button type="button" id="btnDisplayResults" class="btn btn-secondary ml-1" onclick="toggleResults()">View Race Results</button>
+        <!-- </div> -->
+
         <!-- DATA TABLE USED TO GENERATE CHARTS -->
-        <div class="card-deck mt-3">
+        <div id="dataTable" class="card-deck mt-3">
         <div class="card mx-3 table-padding">
         <div id="resultsTable" class="table-responsive">
             <div class="row col-md-12 panel panel-success panel-heading"><h5 class="panel-title">Motorcycle Grand Prix results across all classes since inception</h5></div>
