@@ -1,6 +1,19 @@
 
 body { 
     padding-top: 55px; 
+    background-color: rgb(44, 42, 42);
+}
+
+nav {
+    background-color: rgb(44,42,42);
+}
+
+a {
+    color: orange;
+}
+
+a:hover {
+    color: #0f0;
 }
 
 .carousel .carousel-item > *:first-child {
@@ -12,6 +25,9 @@ body {
 
 .card {
     border-color: orange;
+    background-color: rgb(70, 70, 70);
+    color: white;
+    
 }
 
 .card-title {
