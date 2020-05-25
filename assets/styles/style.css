@@ -2,6 +2,7 @@
 body { 
     padding-top: 55px; 
     background-color: rgb(44, 42, 42);
+    font-family:Verdana, Tahoma, sans-serif;
 }
 
 nav {
@@ -42,7 +43,7 @@ a:hover {
 #resultsTable {
     display: block;
     margin: 1px;
-    max-height: 400px;
+    max-height: 375px;
 }
 
 #btnDisplayResults {
@@ -57,20 +58,39 @@ a:hover {
     padding: 1px;
 }
 
+
 .thead {
+    position: -webkit-sticky; 
+    position: sticky; 
+    top: 0; 
+    z-index: 2;
+
+    /* height: 45px; */
     display: block;
     font-size: 0.8em;
-    background-color: lightgrey;
+    background-color: grey;
+    color: white;
 }
+
+/* .card.theadsection {
+    height: 50px;
+    min-width: 400px;
+} */
 
 table  tbody{
   display:block;
-  height:200px;
-  overflow:auto;
+  /* height:400px; */
+  overflow-y: auto;
+  background-color: lightgray;
 }
 
 tr {
     font-size: 0.8em;
+}
+
+td {
+    min-width: 75px;
+    max-width: 75px;
 }
 
 @media (min-width: 1281px) {
