@@ -1,7 +1,7 @@
 
 body { 
     padding-top: 55px; 
-    background-color: rgb(44, 42, 42);
+    /* background-color: rgb(44, 42, 42); */
     font-family:Verdana, Tahoma, sans-serif;
     background: repeating-linear-gradient(
     45deg,
@@ -12,7 +12,7 @@ body {
 }
 
 nav {
-    background-color: rgb(44,42,42);
+    background-color: #272727;
 }
 
 a {
@@ -34,7 +34,7 @@ a:hover {
     border-color: orange;
     background-color: rgb(70, 70, 70);
     color: white;
-    
+    padding-right: 1px;
 }
 
 .card-title {
@@ -62,6 +62,7 @@ a:hover {
 
 .table-padding {
     padding: 1px;
+    padding-right: 2px;
 }
 
 .thead {
@@ -155,9 +156,10 @@ th {
     }
 }
 
-.featurette-divider {
-  margin: 80px 0; /* <hr> between each */
+hr .section-divider {
+  margin: 40px 0; /* <hr> between each */
 }
+
  .featurette {
   padding-top: 120px;
   overflow: hidden; /* Clear floats */
