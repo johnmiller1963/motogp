@@ -11,10 +11,10 @@
             var ob = Object.keys(obj)[0];
             console.log(obj[ob]["extract"]);
             try{
-                document.getElementById($#results).textContent = obj[ob]["extract"];
+                document.getElementById("results").textContent = obj[ob]["extract"];
             }
             catch (err) {
-                document.getElementById($#results).textContent = err.message;
+                document.getElementById("results").textContent = err.message;
             }
 
         });

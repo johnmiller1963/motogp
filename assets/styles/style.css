@@ -2,7 +2,7 @@
 body { 
     padding-top: 55px; 
     /* background-color: rgb(44, 42, 42); */
-    font-family:Verdana, Tahoma, sans-serif;
+    font-family: "Open Sans", sans-serif;
     background: repeating-linear-gradient(
     45deg,
     #272727,
@@ -16,11 +16,11 @@ nav {
 }
 
 a {
-    color: orange;
+    color: rgb(285,180,0);
 }
 
 a:hover {
-    color: #0f0;
+    color: rgb(225, 125, 0);
 }
 
 .carousel .carousel-item > *:first-child {
@@ -33,12 +33,16 @@ a:hover {
 .card {
     border-color: orange;
     background-color: rgb(70, 70, 70);
-    color: white;
+    color: rgb(220, 220, 220);
     padding-right: 1px;
+    font-weight: 100;
+    line-height: 1.1rem;
+    /* letter-spacing: -1px; */
 }
 
 .card-title {
-    font-size: 1rem;
+    color: rgb(220, 220, 220);
+    font-size: 1.5rem;
     padding: 5px;
 }
 
@@ -85,6 +89,7 @@ table  tbody {
 
 tr {
     font-size: 0.8em;
+    height: 42px;
 }
 
 td {
@@ -95,6 +100,44 @@ td {
 th {
     min-width: 100px;
     max-width: 100px;
+}
+
+
+#statisticsheader {
+    margin-top: 0px; /* <hr> between each */
+}
+
+ .featurette {
+  padding-top: 120px;
+  overflow: hidden; /* Clear floats */
+}
+
+ .featurette-image {
+  margin-top: −120px; /* Vertically center image with the text */
+}
+
+.chart-title {
+    color: rgb(220, 220, 220);
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.chart-options {
+    color: white;
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1;
+   
+}
+
+ .featurette-image.pull-left {
+  margin-right: 40px;
+}
+
+ .featurette-image.pull-right {
+  margin-left: 40px;
 }
 
 @media (min-width: 1281px) {
@@ -137,9 +180,6 @@ th {
         overflow: auto;
         /* border: 1px solid grey; */
     }
-    /* #btnDisplayResults {
-        margin-left: 50px;
-    } */
 }
 
 @media (max-width: 768px) {
@@ -154,28 +194,7 @@ th {
         overflow: auto;
         /*border: 1px solid grey; */
     }
-}
-
-hr .section-divider {
-  margin: 40px 0; /* <hr> between each */
-}
-
- .featurette {
-  padding-top: 120px;
-  overflow: hidden; /* Clear floats */
-}
- .featurette-image {
-  margin-top: −120px; /* Vertically center image with the text */
-}
- .featurette-heading {
-  font-size: 50px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -1px;
-}
- .featurette-image.pull-left {
-  margin-right: 40px;
-}
- .featurette-image.pull-right {
-  margin-left: 40px;
+    /* #btnDisplayResults {
+        margin-inline-start: 5px;    
+    } */
 }
