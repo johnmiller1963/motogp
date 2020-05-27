@@ -48,8 +48,12 @@ $(".dropdown-menu").click(function(){
 }); */
 
 /* Charts */
+
+Chart.defaults.global.defaultFontColor = 'white';
+
 function nationsChart() {
 var ctx = document.getElementById('nationsChart').getContext('2d');
+
 var nationsChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -58,12 +62,12 @@ var nationsChart = new Chart(ctx, {
             label: 'All Championship Classes',
             data: [52, 79, 11, 18, 45, 8, 18],
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
                 'rgba(255, 206, 86, 0.6)',
                 'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
                 'grey'
             ],
             borderColor: [
@@ -73,13 +77,13 @@ var nationsChart = new Chart(ctx, {
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)',
-                'white'
+                'grey'
             ],
             borderWidth: 1
         }]
     },
     options: {
-        scales: {
+        scales: { 
             yAxes: [{
                 ticks: {
                     beginAtZero: true
@@ -89,3 +93,35 @@ var nationsChart = new Chart(ctx, {
     }
 });
 };
+
+
+funtion nationsData() {
+    /* build array of wins per nation */
+}
+
+function nationsStatic() {
+    labels: ['Spain', 'Italy', 'Australia', 'USA', 'UK', 'France','Germany'],
+    datasets: [{
+        label: 'All Championship Classes',
+        data: [52, 79, 11, 18, 45, 8, 18],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'grey'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'grey'
+        ],
+        borderWidth: 1
+    }]
+}
