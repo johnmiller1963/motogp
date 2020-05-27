@@ -1,9 +1,11 @@
 $(document).ready( function () {
     nationsChart();
+    buildDataVariables()
+    yearsSince1949()
 });
 
 /* Used to calulate the time in years since the championships started */
-function diff_years() {
+function yearsSince1949() {
     var dt2=new Date();
     var dt1=new Date(1949,1,1);
     var diff =(dt2.getTime() - dt1.getTime()) / 1000;
@@ -53,14 +55,17 @@ Chart.defaults.global.defaultFontColor = 'white';
 
 function nationsChart() {
 var ctx = document.getElementById('nationsChart').getContext('2d');
+var chartHeader = buildDataVariables();
 
 var nationsChart = new Chart(ctx, {
     type: 'bar',
     data: {
+        /* labels: buildDataVariables[0], */
         labels: ['Spain', 'Italy', 'Australia', 'USA', 'UK', 'France','Germany'],
         datasets: [{
             label: 'All Championship Classes',
             data: [52, 79, 11, 18, 45, 8, 18],
+            /* data: buildDataVariables[0], */
             backgroundColor: [
                 'rgba(255, 99, 132, 0.6)',
                 'rgba(54, 162, 235, 0.6)',
@@ -94,34 +99,36 @@ var nationsChart = new Chart(ctx, {
 });
 };
 
+function buildDataVariables() {
+var header = Array();
+var data = Array();
+var myData = Array();    
 
-funtion nationsData() {
+$("table tr th").each(function(i, v){
+    {header[i] = $(this).text()
+    };  
+})
+               
+alert(header);
+
+
+    
+$("table tr").each(function(i, v){
+    data[i] = Array();
+    $(this).children('td').each(function(ii, vv){
+        data[i][ii] = $(this).text();
+    }); 
+})
+
+
+alert(data);
+
+myData=[header,data];
+return(myData);
+
+};
+
+
+function nationsData() {
     /* build array of wins per nation */
-}
-
-function nationsStatic() {
-    labels: ['Spain', 'Italy', 'Australia', 'USA', 'UK', 'France','Germany'],
-    datasets: [{
-        label: 'All Championship Classes',
-        data: [52, 79, 11, 18, 45, 8, 18],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'grey'
-        ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'grey'
-        ],
-        borderWidth: 1
-    }]
-}
+};
