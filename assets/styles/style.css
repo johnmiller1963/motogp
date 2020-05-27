@@ -140,6 +140,10 @@ th {
   margin-left: 40px;
 }
 
+.canvas {
+    background-color: white;
+}
+
 @media (min-width: 1281px) {
     .carousel .carousel-item {
         height: 28em; 

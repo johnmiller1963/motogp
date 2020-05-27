@@ -1,3 +1,7 @@
+$(document).ready( function () {
+    nationsChart();
+});
+
 /* Used to calulate the time in years since the championships started */
 function diff_years() {
     var dt2=new Date();
@@ -43,3 +47,45 @@ $(".dropdown-menu").click(function(){
   $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
 }); */
 
+/* Charts */
+function nationsChart() {
+var ctx = document.getElementById('nationsChart').getContext('2d');
+var nationsChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Spain', 'Italy', 'Australia', 'USA', 'UK', 'France','Germany'],
+        datasets: [{
+            label: 'All Championship Classes',
+            data: [52, 79, 11, 18, 45, 8, 18],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'grey'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'white'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+};
