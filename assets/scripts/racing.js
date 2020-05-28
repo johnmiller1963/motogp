@@ -23,7 +23,7 @@ $( "#navSearch" ).keypress(function(e) {
 });
 
 /* 
-This didn't work
+This didn't work, but might be useful later?
 $(document).keyup(function(event) {
     if ((event.key == 'Enter') && $("#navSearch").is(":focus")) {
         var str = $("#navSearch").val();
@@ -32,6 +32,7 @@ $(document).keyup(function(event) {
 }); 
 */
 
+/* Used to feed following images into the slider/carousel */
 function startCarousel() {
     'use strict';
 	$('.carousel .carousel-item[data-src]').each(function() {
@@ -42,16 +43,29 @@ function startCarousel() {
 	});
 };
 
-/* Streams the carousel images side by side
-$(function() {
-  'use strict';
-	$('.carousel .carousel-item[data-src]').each(function() {
-		var $this = $(this);
-		$this.prepend([
-			'<div style="background-image: url(', $this.attr('data-src'), ')"></div>'
-		].join(''));
-	});
-});
+/* Will be used to get latest 'Article' from Wikipedia api 
+Not working yet */
+function doWiki() {
+        var URL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=';
+
+        URL += "&titles=" + "motoGP";
+        URL += "&rvprop=content";
+        URL += "&callback=?";
+        alert(URL);
+        /* $.getJSON */
+        $.getJSON(URL, function (data) {
+            var obj = data.query.pages;
+            var ob = Object.keys(obj)[0];
+            console.log(obj[ob]["extract"]);
+            try{
+                document.getElementById("results").textContent = obj[ob]["extract"];
+            }
+            catch (err) {
+                document.getElementById("results").textContent = err.message;
+            }
+
+        });
+    } ;
 
 /* Show and hide the results grid */
  function toggleResults() {
@@ -65,8 +79,8 @@ $(function() {
         }
  };
 
- /* Update drop-down menu following user selection */
-
+ /* Update drop-down menu following user selection 
+ Not working correctly */
 $(".dropdown-menu").click(function(){
     $(this).parents(".input-group-btn").find('.btn').text($(this).text());
 });
@@ -78,7 +92,6 @@ $(".dropdown-menu").click(function(){
 }); */
 
 /* Charts */
-
 Chart.defaults.global.defaultFontColor = 'white';
 
 function nationsChart() {
@@ -150,10 +163,30 @@ $("table tr").each(function(i, v){
 
 myData=[header,data];
 return(myData);
-
 };
 
-
+/* build array of wins per nation */
 function nationsData() {
-    /* build array of wins per nation */
-};
+var header = Array();
+var data = Array();
+var myData = Array();    
+
+$("table tr th").each(function(i, v){
+    {header[i] = $(this).text()
+    };  
+})
+               
+/* alert(header); */
+    
+$("table tr").each(function(i, v){
+    data[i] = Array();
+    $(this).children('td').each(function(ii, vv){
+        data[i][ii] = $(this).text();
+    }); 
+})
+
+/* alert(data); */
+
+myData=[header,data];
+return(myData);
+}; 
