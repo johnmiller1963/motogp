@@ -1,7 +1,8 @@
 $(document).ready( function () {
     nationsChart();
-    buildDataVariables()
-    yearsSince1949()
+    buildDataVariables();
+    yearsSince1949();
+    startCarousel();
 });
 
 /* Used to calulate the time in years since the championships started */
@@ -13,12 +14,39 @@ function yearsSince1949() {
     document.getElementById("yearsSince1949").innerHTML = Math.abs(Math.round(diff/365.25));
  };
 
- /* Streams the carousel images side by side */
+/* Will be used to search the page eg riders, makes etc */
+$( "#navSearch" ).keypress(function(e) {
+    if (e.key == 'Enter') {
+        var str = $("#navSearch").val();
+        alert("Now searching the page for '" + str + "'!");
+    };
+});
+
+/* 
+This didn't work
+$(document).keyup(function(event) {
+    if ((event.key == 'Enter') && $("#navSearch").is(":focus")) {
+        var str = $("#navSearch").val();
+        alert("Now searching the page for '" + str + "'!");
+    };
+}); 
+*/
+
+function startCarousel() {
+    'use strict';
+	$('.carousel .carousel-item[data-src]').each(function() {
+		var $this = $(this);
+		$this.prepend([
+			'<div style="background-image: url(', $this.attr('data-src'), ')"></div>'
+		].join(''));
+	});
+};
+
+/* Streams the carousel images side by side
 $(function() {
   'use strict';
 	$('.carousel .carousel-item[data-src]').each(function() {
 		var $this = $(this);
-
 		$this.prepend([
 			'<div style="background-image: url(', $this.attr('data-src'), ')"></div>'
 		].join(''));
@@ -109,9 +137,7 @@ $("table tr th").each(function(i, v){
     };  
 })
                
-alert(header);
-
-
+/* alert(header); */
     
 $("table tr").each(function(i, v){
     data[i] = Array();
@@ -120,8 +146,7 @@ $("table tr").each(function(i, v){
     }); 
 })
 
-
-alert(data);
+/* alert(data); */
 
 myData=[header,data];
 return(myData);
