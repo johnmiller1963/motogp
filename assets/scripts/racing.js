@@ -69,31 +69,73 @@ function doWiki() {
 /* Build html table from Tabulator */
 function buildHTMLTable() {
 $("#resultsTable").tabulator({
-    height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
-    layout:"fitColumns", //fit columns to width of table (optional)
-    columns:[ //Define Table Columns
-        {title:"Name", field:"name", width:150},
-        {title:"Age", field:"age", align:"left", formatter:"progress"},
-        {title:"Favourite Color", field:"col"},
-        {title:"Date Of Birth", field:"dob", sorter:"date", align:"center"},
+    index:"Year",
+    height:265, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+    /* layout:"fitColumns", //fit columns to width of table (optional) */
+     columns:[
+        {title:"Year", field:"Year", width:70, sorter:"number"},
+            {title:"MotoGP 500cc",
+                columns:[
+                    {title:"Nation", field:"500cc MotoGP Nation", align:"left", width:100},
+                    {title:"Rider", field:"500cc MotoGP Rider", align:"left", width:100},
+                    {title:"Make", field:"500cc MotoGP Make", align:"left", width:100},
+                ],
+            },
+             {title:"350cc GP",
+                columns:[
+                    {title:"Nation", field:"350cc Nation", align:"left", width:100},
+                    {title:"Rider", field:"350cc Rider", align:"left", width:100},
+                    {title:"Make", field:"350cc Make", align:"left", width:100},
+                ],
+            },
+            {title:"Moto2 250cccc",
+                columns:[
+                    {title:"Nation", field:"250cc Moto2 Nation", align:"left", width:100},
+                    {title:"Rider", field:"250cc Moto2 Rider", align:"left", width:100},
+                    {title:"Make", field:"250cc Moto2 Make", align:"left", width:100},
+                ],
+            },
+            {title:"Moto3 125cc",
+                columns:[
+                    {title:"Nation", field:"125cc Moto3 Nation", align:"left", width:100},
+                    {title:"Rider", field:"125cc Moto3 Rider", align:"left", width:100},
+                    {title:"Make", field:"125cc Moto3 Make", align:"left", width:100},
+                ],
+            },
+            {title:"50cc 80cc",
+                columns:[
+                    {title:"Nation", field:"50cc 80cc Nation", align:"left", width:100},
+                    {title:"Rider", field:"50cc 80cc Rider", align:"left", width:100},
+                    {title:"Make", field:"50cc 80cc Make", align:"left", width:100},
+                ],
+            },
+            {title:"750cc",
+                columns:[
+                    {title:"Nation", field:"750cc Nation", align:"left", width:100},
+                    {title:"Rider", field:"750cc Rider", align:"left", width:100},
+                    {title:"Make", field:"750cc Make", align:"left", width:100},
+                ],
+            },
+            {title:"MotoE (Electric)",
+                columns:[
+                    {title:"Nation", field:"MotoE Nation", align:"left", width:100},
+                    {title:"Rider", field:"MotoE Rider", align:"left", width:100},
+                    {title:"Make", field:"MotoE Make", align:"left", width:100},
+                ],
+            },
     ],
-    rowClick:function(e, row){ //trigger an alert message when the row is clicked
+    /* rowClick:function(e, row){ //trigger an alert message when the row is clicked
         alert("Row " + row.getData().id + " Clicked!!!!");
-    },
+    }, */
 });
 
-var tabledata = [
-    {id:1, name:"Oli Bob", age:"12", col:"red", dob:""},
-    {id:2, name:"Mary May", age:"1", col:"blue", dob:"14/05/1982"},
-    {id:3, name:"Christine Lobowski", age:"42", col:"green", dob:"22/05/1982"},
-    {id:4, name:"Brendon Philips", age:"125", col:"orange", dob:"01/08/1980"},
-    {id:5, name:"Margret Marmajuke", age:"16", col:"yellow", dob:"31/01/1999"},
-];
 
-//load sample data into the table
-$("#resultsTable").tabulator("setData", tabledata);
+/* alert("load json data to array"); */
+
+
+//load JSON data into the table
+$("#resultsTable").tabulator("setData", "assets/data/jsondata.json");
 };
-
 
 /* Show and hide the results grid */
  function toggleResults() {
@@ -119,5 +161,5 @@ $(".dropdown-menu").click(function(){
   $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
 }); */
 
-/* Charts */
-Chart.defaults.global.defaultFontColor = 'white';
+/* Charts 
+Chart.defaults.global.defaultFontColor = 'white'; */
