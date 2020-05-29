@@ -1,8 +1,7 @@
 $(document).ready( function () {
-    nationsChart();
-    buildDataVariables();
     yearsSince1949();
     startCarousel();
+    buildHTMLTable();
 });
 
 /* Used to calulate the time in years since the championships started */
@@ -65,7 +64,36 @@ function doWiki() {
             }
 
         });
-    } ;
+    };
+
+/* Build html table from Tabulator */
+function buildHTMLTable() {
+$("#resultsTable").tabulator({
+    height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+    layout:"fitColumns", //fit columns to width of table (optional)
+    columns:[ //Define Table Columns
+        {title:"Name", field:"name", width:150},
+        {title:"Age", field:"age", align:"left", formatter:"progress"},
+        {title:"Favourite Color", field:"col"},
+        {title:"Date Of Birth", field:"dob", sorter:"date", align:"center"},
+    ],
+    rowClick:function(e, row){ //trigger an alert message when the row is clicked
+        alert("Row " + row.getData().id + " Clicked!!!!");
+    },
+});
+
+var tabledata = [
+    {id:1, name:"Oli Bob", age:"12", col:"red", dob:""},
+    {id:2, name:"Mary May", age:"1", col:"blue", dob:"14/05/1982"},
+    {id:3, name:"Christine Lobowski", age:"42", col:"green", dob:"22/05/1982"},
+    {id:4, name:"Brendon Philips", age:"125", col:"orange", dob:"01/08/1980"},
+    {id:5, name:"Margret Marmajuke", age:"16", col:"yellow", dob:"31/01/1999"},
+];
+
+//load sample data into the table
+$("#resultsTable").tabulator("setData", tabledata);
+};
+
 
 /* Show and hide the results grid */
  function toggleResults() {
@@ -93,100 +121,3 @@ $(".dropdown-menu").click(function(){
 
 /* Charts */
 Chart.defaults.global.defaultFontColor = 'white';
-
-function nationsChart() {
-var ctx = document.getElementById('nationsChart').getContext('2d');
-var chartHeader = buildDataVariables();
-
-var nationsChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        /* labels: buildDataVariables[0], */
-        labels: ['Spain', 'Italy', 'Australia', 'USA', 'UK', 'France','Germany'],
-        datasets: [{
-            label: 'All Championship Classes',
-            data: [52, 79, 11, 18, 45, 8, 18],
-            /* data: buildDataVariables[0], */
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
-                'rgba(255, 159, 64, 0.6)',
-                'grey'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'grey'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: { 
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-};
-
-function buildDataVariables() {
-var header = Array();
-var data = Array();
-var myData = Array();    
-
-$("table tr th").each(function(i, v){
-    {header[i] = $(this).text()
-    };  
-})
-               
-/* alert(header); */
-    
-$("table tr").each(function(i, v){
-    data[i] = Array();
-    $(this).children('td').each(function(ii, vv){
-        data[i][ii] = $(this).text();
-    }); 
-})
-
-/* alert(data); */
-
-myData=[header,data];
-return(myData);
-};
-
-/* build array of wins per nation */
-function nationsData() {
-var header = Array();
-var data = Array();
-var myData = Array();    
-
-$("table tr th").each(function(i, v){
-    {header[i] = $(this).text()
-    };  
-})
-               
-/* alert(header); */
-    
-$("table tr").each(function(i, v){
-    data[i] = Array();
-    $(this).children('td').each(function(ii, vv){
-        data[i][ii] = $(this).text();
-    }); 
-})
-
-/* alert(data); */
-
-myData=[header,data];
-return(myData);
-}; 
