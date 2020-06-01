@@ -42,6 +42,11 @@ function startCarousel() {
 	});
 };
 
+function displayMe(){
+    document.getElementById("card2").style.display = "none"; 
+    document.getElementById("card3").style.display = "none"; 
+}
+
 /* Will be used to get latest 'Article' from Wikipedia api 
 Not working yet */
 function doWiki() {
@@ -73,59 +78,62 @@ $("#resultsTable").tabulator({
     height:265, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
     /* layout:"fitColumns", //fit columns to width of table (optional) */
      columns:[
-        {title:"Year", field:"Year", width:70, sorter:"number"},
+        {title:"Year", field:"Year", width:70, sorter:"number", frozen:true},
             {title:"MotoGP 500cc",
                 columns:[
-                    {title:"Nation", field:"500cc MotoGP Nation", align:"left", width:100},
-                    {title:"Rider", field:"500cc MotoGP Rider", align:"left", width:100},
-                    {title:"Make", field:"500cc MotoGP Make", align:"left", width:100},
+                    {title:"Nation", field:"500cc MotoGP Nation", align:"left", width:100, headerFilter:true, cellClick:function(e, cell){alert("cell clicked - " + cell.getValue())}},
+                    {title:"Rider", field:"500cc MotoGP Rider", align:"left", width:100, headerFilter:true},
+                    {title:"Make", field:"500cc MotoGP Make", align:"left", width:100, headerFilter:true},
                 ],
             },
              {title:"350cc GP",
                 columns:[
-                    {title:"Nation", field:"350cc Nation", align:"left", width:100},
-                    {title:"Rider", field:"350cc Rider", align:"left", width:100},
-                    {title:"Make", field:"350cc Make", align:"left", width:100},
+                    {title:"Nation", field:"350cc Nation", align:"left", width:100, headerFilter:true},
+                    {title:"Rider", field:"350cc Rider", align:"left", width:100, headerFilter:true},
+                    {title:"Make", field:"350cc Make", align:"left", width:100, headerFilter:true},
                 ],
             },
             {title:"Moto2 250cccc",
                 columns:[
-                    {title:"Nation", field:"250cc Moto2 Nation", align:"left", width:100},
-                    {title:"Rider", field:"250cc Moto2 Rider", align:"left", width:100},
-                    {title:"Make", field:"250cc Moto2 Make", align:"left", width:100},
+                    {title:"Nation", field:"250cc Moto2 Nation", align:"left", width:100, headerFilter:true},
+                    {title:"Rider", field:"250cc Moto2 Rider", align:"left", width:100, headerFilter:true},
+                    {title:"Make", field:"250cc Moto2 Make", align:"left", width:100, headerFilter:true},
                 ],
             },
             {title:"Moto3 125cc",
                 columns:[
-                    {title:"Nation", field:"125cc Moto3 Nation", align:"left", width:100},
-                    {title:"Rider", field:"125cc Moto3 Rider", align:"left", width:100},
-                    {title:"Make", field:"125cc Moto3 Make", align:"left", width:100},
+                    {title:"Nation", field:"125cc Moto3 Nation", align:"left", width:100, headerFilter:true},
+                    {title:"Rider", field:"125cc Moto3 Rider", align:"left", width:100, headerFilter:true},
+                    {title:"Make", field:"125cc Moto3 Make", align:"left", width:100, headerFilter:true},
                 ],
             },
             {title:"50cc 80cc",
                 columns:[
-                    {title:"Nation", field:"50cc 80cc Nation", align:"left", width:100},
-                    {title:"Rider", field:"50cc 80cc Rider", align:"left", width:100},
-                    {title:"Make", field:"50cc 80cc Make", align:"left", width:100},
+                    {title:"Nation", field:"50cc 80cc Nation", align:"left", width:100, headerFilter:true},
+                    {title:"Rider", field:"50cc 80cc Rider", align:"left", width:100, headerFilter:true},
+                    {title:"Make", field:"50cc 80cc Make", align:"left", width:100, headerFilter:true},
                 ],
             },
             {title:"750cc",
                 columns:[
-                    {title:"Nation", field:"750cc Nation", align:"left", width:100},
-                    {title:"Rider", field:"750cc Rider", align:"left", width:100},
-                    {title:"Make", field:"750cc Make", align:"left", width:100},
+                    {title:"Nation", field:"750cc Nation", align:"left", width:100, headerFilter:true},
+                    {title:"Rider", field:"750cc Rider", align:"left", width:100, headerFilter:true},
+                    {title:"Make", field:"750cc Make", align:"left", width:100, headerFilter:true},
                 ],
             },
             {title:"MotoE (Electric)",
                 columns:[
-                    {title:"Nation", field:"MotoE Nation", align:"left", width:100},
-                    {title:"Rider", field:"MotoE Rider", align:"left", width:100},
-                    {title:"Make", field:"MotoE Make", align:"left", width:100},
+                    {title:"Nation", field:"MotoE Nation", align:"left", width:100, headerFilter:true},
+                    {title:"Rider", field:"MotoE Rider", align:"left", width:100, headerFilter:true},
+                    {title:"Make", field:"MotoE Make", align:"left", width:100, headerFilter:true},
                 ],
             },
     ],
-    /* rowClick:function(e, row){ //trigger an alert message when the row is clicked
-        alert("Row " + row.getData().id + " Clicked!!!!");
+    /* rowClick:function(e, row){
+        alert("Row " + row.getIndex() + " Clicked!!!!")
+    },
+    rowContext:function(e, row){
+        alert("Row " + row.getIndex() + " Context Clicked!!!!")
     }, */
 });
 

@@ -4,8 +4,10 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Statistical analysis of Motorcycle Grand Prix wins">
         <meta name="author" content="John Miller">
+        <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
         <!-- <link rel="icon" href="/assets/images/favicon.png"> -->
 
         <title>MotoGP</title>
@@ -222,122 +224,133 @@
       <!-- Marketing messaging and featurettes
       ================================================== -->
       <!-- Wrap the rest of the page in another container to center all the content. -->
-        <div class="container-fluid p-3">
+        <div class="container-fluid">
 
-        <!-- Articles below the carousel -->
-        <div class="card-deck">
-          <div class="card">
-            <img class="card-img-top img-fluid" src="assets/images/introduction.jpg" alt="Generic placeholder image" height="200px">
-            <h2 class="card-title">Introduction</h2>
-                <p class="card-text text-justify max-height-text px-2">Grand Prix motorcycle racing is the premier class of motorcycle road racing events held on road circuits sanctioned by the <a href="https://en.wikipedia.org/wiki/F%C3%A9d%C3%A9ration_Internationale_de_Motocyclisme" target="_blank">Fédération Internationale de Motocyclisme (FIM)</a>.<br>It is the oldest established motorsport world championship.<br>Independent motorcycle racing events have been held since the start of the twentieth century and large national events were often given the title Grand Prix. The foundation of the Fédération Internationale de Motocyclisme as the international governing body for motorcycle sport in 1949 provided the opportunity to coordinate rules and regulations in order that selected events could count towards official World Championships. The current top division is known as <a href="https://www.motogp.com/" target="_blank">MotoGP</a> since 2002 when the four-stroke era began. Prior to that, the largest class was 500cc, both of which form a historical continuum as the official World Championship, although all classes have official status.
-                Grand Prix motorcycles are purpose-built racing machines that are generally unavailable for purchase by the general public or able to be ridden legally on public roads. This contrasts with the various production-based categories of racing, such as the <a href="https://www.worldsbk.com/" target="_blank">Superbike World Championship</a> and the <a href="https://www.iomtt.com/" target="_blank">Isle of Man TT Races</a> that feature modified versions of road-going motorcycles available to the public.
-                The championship is currently divided into four classes: Moto Grand Prix, Moto2, Moto3 and MotoE. The first three classes use four-stroke engines, while the MotoE class (new in 2019) uses electric motors, much like the four-wheeler, single-seater all-electric racing series Formula E. The 2019 MotoGP season comprises 19 Grands Prix, with 12 held in Europe, three in Asia, two in the Americas, and one each in Australia and the Middle East.
-                </p>
-            <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
-          </div>
-          <div class="card">
-            <img class="card-img-top img-fluid" src="assets/images/concentration.jpg" alt="Generic placeholder image" height="200px">
-            <h2 class="card-title">Concentration!</h2>
-            <p class="card-text text-justify max-height-text px-2">Scroll down the page to see some statistics concerning the full race results across all <span id="yearsSince1949"></span> years of Grand Prix motorcycle racing.<br>The most successful rider in Grand Prix history is <a href="https://en.wikipedia.org/wiki/Giacomo_Agostini" target="_blank">Giacomo Agostini</a> with 15 titles and 122 race wins. In the top-flight series, Agostini holds the title record with eight, followed by active riders <a href="https://en.wikipedia.org/wiki/Valentino_Rossi" target="_blank">Valentino Rossi</a> with seven and <a href="https://en.wikipedia.org/wiki/Marc_Márquez" target="_blank">Marc Márquez</a> with six. As of 2019, Rossi holds the record for most top-flight race wins with 89.<br>
-                Without exception every single racer mentioned on this website is (or was) a dedicated and focused sports person. The majority started riding motorcycles at a very young age and fear is not a common word in any racers vocabulary, despite the risks clearly involved.</p>
-            <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
-          </div>
-          <div class="card">
-            <img class="card-img-top img-fluid" src="assets/images/physics101.jpg" alt="Generic placeholder image" height="200px">
-            <h2 class="card-title">Physiscs 101</h2>
-            <p class="card-text text-justify max-height-text px-2">(Credits to <a href="https://www.edutopia.org/motorcycle-physics" target="_blank">Owen Edwards : Edutopia</a>)<br>
-                A grand prix racing motorcycle is many things: most impressively, a marvel of engineering that costs hundreds of thousands of dollars to develop and build, and one of the fastest machines on wheels, capable of speeds in excess of 210 miles per hour and able to retain a grip on the road at lean angles of 60 degrees or more.  
-                But looked at scientifically, a racing bike is nothing less than a kinetic demonstration of the laws of physics. <a href="https://en.wikipedia.org/wiki/Freddie_Spencer" target="_blank">Freddie Spencer</a>, a legendary grand prix champion of the eighties and now "dean" of Freddie Spencer's High Performance Riding School in Las Vegas, puts it this way: "Motorcycle racing is a real-world physics lab where the penalty for wrong answers is a lot more dramatic than a bad grade."<br>
-                <b>1. Gravity:</b><br>
-                The rider shifts weight into the turn to help the motorcycle change direction and lower its center of gravity.<br>
-                <b>2. Kinetic Energy:</b><br>
-                At speed on a straightaway, a motorcycle’s energy is directed forward.<br>
-                <b>3. First Law of Motion:</b><br>
-                Newton stated that a body in motion persists in a straight line unless compelled to change.<br>
-                <b>4. Thermodynamics:</b><br>
-                Slowing the motorcycle from high speed for tight turns causes heat buildup in its brakes and can diminish effectiveness.<br>
-                <b>5. Centrifugal Force:</b><br>
-                In fast turns, lean angle and forward motion counteract the powerful pull toward the outer edge of the track.<br>
-                <b>6. Friction:</b><br>
-                A special compound in these rounded tires allows traction on asphalt even at lean angles of 60 degrees and more.
-                Credit: Fiat Yamaha Team.<br>
-                According to Charles Falco, the University of Arizona's chair of condensed-matter physics and co-curator of the Guggenheim Museum's The Art of the Motorcycle exhibition, the initial physics lesson to be learned watching a racing bike hurtle into a tight turn is Newton's first law of motion: "Every object persists in its state of rest or uniform motion in a straight line unless it is compelled to change that state by forces impressed on it," explains Falco. To a rider, this means that the faster a motorcycle is going, the less it wants to turn. Converting a bike's kinetic energy from straight ahead to turning requires a negotiation with physics in a couple of ways. First, a rider pushes the handlebars slightly away from the direction of the turn. Because the wheels act as gyroscopes, this countersteering leans the bike in the opposite direction (into the turn), which puts the tires at an angle, narrowing what engineers call the contact patch and making the bike easier to turn. At the same time, the rider moves off the bike in the direction of the turn. The lean angle of the motorcycle shifts the center of gravity to the side, causing the bike to turn, while the weight redistribution lets the machine stay slightly more upright. At the point of maximum lean required to get through a turn at the highest possible speed, centrifugal force wants to pull the bike machine off the track, and the rider uses traction, gravity, and momentum to stay in the game. To explain why the machine moves at all, Falco invokes Newton's second law of motion: A force applied to an object will cause it to accelerate. "This will happen until the rider runs out of track, or other forces become nonnegligible, such as wind resistance," says Falco. On some tracks, grand prix motorcycles approaching tight turns must slow from more than 200 mph to around 40 mph. Friction on the brakes (primarily the front brakes) makes this possible. "All that excess energy has to be dissipated by the brakes in the form of heat," Falco says, thus bringing up the law of conservation of matter and energy. Some of this heat is transferred to the hydraulic-brake fluid, which can cause brakes to lose stopping power, with potentially disastrous consequences. Engineers use space age ceramic materials to avoid this problem, and riders become skilled at getting on and off the brakes quickly.
-                Successful race riding is a lot like paying taxes: You want to push the rules as far as you can without breaking them. There is a very fine line between optimum cornering and crashing, where outward, downward, and forward forces balance precisely. But rules are rules. "Speaking on behalf of physicists everywhere," Falco declares, "nothing that ever happens on a motorcycle breaks the laws of physics. In fact, motorcycles are excellent examples of just how well physics works."</p>
-            <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
-          </div>
-        </div>
-        
-        <!-- RESULTS SECTION -->
-        <div class="section-divider"></div>
-
-
-        <!-- DATA TABLE USED TO GENERATE CHARTS -->
-        <h2 class="chart-title">Results Table</h2>
-        <div id="resultsTable"></div>
-        <!-- <div id="resultsTable" class="card"></div> -->
-        <!-- /END DATA TABLE USED TO GENERATE CHARTS -->
-
-        <!-- STATISTICS SECTION -->
-        
-
-        <div class="row featurette">
-          <div class="col-md-4">
-            <h2 class="chart-title">Winning nationalities.</h2>
-            <p class="chart-options">Change any options available to view the updated charts.</p>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        All Classes
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item">MotoGP 500cc</a>
-                        <a class="dropdown-item">Moto2 250cc</a>
-                        <a class="dropdown-item">Moto3 125cc</a>
-                        <a class="dropdown-item">Other Classes</a>
+            <!-- Articles below the carousel -->
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <div id="card1" class="card w-100" onclick="displayMe()">
+                        <div>
+                        <h2 class="card-title">Introduction</h2>
+                        <img class="card-img img-fluid mx-auto w-100" src="assets/images/introduction.jpg" alt="Generic placeholder image">
+                            <p id="card1-text" class="article-text">Grand Prix motorcycle racing is the premier class of motorcycle road racing events held on road circuits sanctioned by the <a href="https://en.wikipedia.org/wiki/F%C3%A9d%C3%A9ration_Internationale_de_Motocyclisme" target="_blank">Fédération Internationale de Motocyclisme (FIM)</a>.<br>It is the oldest established motorsport world championship.<br>Independent motorcycle racing events have been held since the start of the twentieth century and large national events were often given the title Grand Prix. The foundation of the Fédération Internationale de Motocyclisme as the international governing body for motorcycle sport in 1949 provided the opportunity to coordinate rules and regulations in order that selected events could count towards official World Championships. The current top division is known as <a href="https://www.motogp.com/" target="_blank">MotoGP</a> since 2002 when the four-stroke era began. Prior to that, the largest class was 500cc, both of which form a historical continuum as the official World Championship, although all classes have official status.
+                            Grand Prix motorcycles are purpose-built racing machines that are generally unavailable for purchase by the general public or able to be ridden legally on public roads. This contrasts with the various production-based categories of racing, such as the <a href="https://www.worldsbk.com/" target="_blank">Superbike World Championship</a> and the <a href="https://www.iomtt.com/" target="_blank">Isle of Man TT Races</a> that feature modified versions of road-going motorcycles available to the public.
+                            The championship is currently divided into four classes: Moto Grand Prix, Moto2, Moto3 and MotoE. The first three classes use four-stroke engines, while the MotoE class (new in 2019) uses electric motors, much like the four-wheeler, single-seater all-electric racing series Formula E. The 2019 MotoGP season comprises 19 Grands Prix, with 12 held in Europe, three in Asia, two in the Americas, and one each in Australia and the Middle East.
+                            </p>
+                        </div>
+                        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
                     </div>
                 </div>
-          </div>
-        <div class="col-md-8 chart chart-container style="position: relative; height:40vh; width:80vw">
+                <div class="col-sm-6 col-lg-4">
+                    <div id="card2" class="card w-100" onclick="displayMe()">
+                        <div>
+                        <h2 class="card-title">Concentration!</h2>
+                        <img class="card-img img-fluid mx-auto" src="assets/images/concentration.jpg" alt="Generic placeholder image">
+                        <p id="card2-text" class="article-text">Scroll down the page to see some statistics concerning the full race results across all <span id="yearsSince1949"></span> years of Grand Prix motorcycle racing.<br>The most successful rider in Grand Prix history is <a href="https://en.wikipedia.org/wiki/Giacomo_Agostini" target="_blank">Giacomo Agostini</a> with 15 titles and 122 race wins. In the top-flight series, Agostini holds the title record with eight, followed by active riders <a href="https://en.wikipedia.org/wiki/Valentino_Rossi" target="_blank">Valentino Rossi</a> with seven and <a href="https://en.wikipedia.org/wiki/Marc_Márquez" target="_blank">Marc Márquez</a> with six. As of 2019, Rossi holds the record for most top-flight race wins with 89.<br>
+                            Without exception every single racer mentioned on this website is (or was) a dedicated and focused sports person. The majority started riding motorcycles at a very young age and fear is not a common word in any racers vocabulary, despite the risks clearly involved.</p>
+                        </div>
+                        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div id="card3" class="card w-100" onclick="displayMe()">
+                        <div>
+                        <h2 class="card-title">Physiscs 101</h2>
+                        <img class="card-img img-fluid mx-auto" src="assets/images/physics101.jpg" alt="Generic placeholder image">
+                        <p id="article3-text" class="article-text">(Credits to <a href="https://www.edutopia.org/motorcycle-physics" target="_blank">Owen Edwards : Edutopia</a>)<br>
+                            A grand prix racing motorcycle is many things: most impressively, a marvel of engineering that costs hundreds of thousands of dollars to develop and build, and one of the fastest machines on wheels, capable of speeds in excess of 210 miles per hour and able to retain a grip on the road at lean angles of 60 degrees or more.  
+                            But looked at scientifically, a racing bike is nothing less than a kinetic demonstration of the laws of physics. <a href="https://en.wikipedia.org/wiki/Freddie_Spencer" target="_blank">Freddie Spencer</a>, a legendary grand prix champion of the eighties and now "dean" of Freddie Spencer's High Performance Riding School in Las Vegas, puts it this way: "Motorcycle racing is a real-world physics lab where the penalty for wrong answers is a lot more dramatic than a bad grade."<br>
+                            <b>1. Gravity:</b><br>
+                            The rider shifts weight into the turn to help the motorcycle change direction and lower its center of gravity.<br>
+                            <b>2. Kinetic Energy:</b><br>
+                            At speed on a straightaway, a motorcycle’s energy is directed forward.<br>
+                            <b>3. First Law of Motion:</b><br>
+                            Newton stated that a body in motion persists in a straight line unless compelled to change.<br>
+                            <b>4. Thermodynamics:</b><br>
+                            Slowing the motorcycle from high speed for tight turns causes heat buildup in its brakes and can diminish effectiveness.<br>
+                            <b>5. Centrifugal Force:</b><br>
+                            In fast turns, lean angle and forward motion counteract the powerful pull toward the outer edge of the track.<br>
+                            <b>6. Friction:</b><br>
+                            A special compound in these rounded tires allows traction on asphalt even at lean angles of 60 degrees and more.
+                            Credit: Fiat Yamaha Team.<br>
+                            According to Charles Falco, the University of Arizona's chair of condensed-matter physics and co-curator of the Guggenheim Museum's The Art of the Motorcycle exhibition, the initial physics lesson to be learned watching a racing bike hurtle into a tight turn is Newton's first law of motion: "Every object persists in its state of rest or uniform motion in a straight line unless it is compelled to change that state by forces impressed on it," explains Falco. To a rider, this means that the faster a motorcycle is going, the less it wants to turn. Converting a bike's kinetic energy from straight ahead to turning requires a negotiation with physics in a couple of ways. First, a rider pushes the handlebars slightly away from the direction of the turn. Because the wheels act as gyroscopes, this countersteering leans the bike in the opposite direction (into the turn), which puts the tires at an angle, narrowing what engineers call the contact patch and making the bike easier to turn. At the same time, the rider moves off the bike in the direction of the turn. The lean angle of the motorcycle shifts the center of gravity to the side, causing the bike to turn, while the weight redistribution lets the machine stay slightly more upright. At the point of maximum lean required to get through a turn at the highest possible speed, centrifugal force wants to pull the bike machine off the track, and the rider uses traction, gravity, and momentum to stay in the game. To explain why the machine moves at all, Falco invokes Newton's second law of motion: A force applied to an object will cause it to accelerate. "This will happen until the rider runs out of track, or other forces become nonnegligible, such as wind resistance," says Falco. On some tracks, grand prix motorcycles approaching tight turns must slow from more than 200 mph to around 40 mph. Friction on the brakes (primarily the front brakes) makes this possible. "All that excess energy has to be dissipated by the brakes in the form of heat," Falco says, thus bringing up the law of conservation of matter and energy. Some of this heat is transferred to the hydraulic-brake fluid, which can cause brakes to lose stopping power, with potentially disastrous consequences. Engineers use space age ceramic materials to avoid this problem, and riders become skilled at getting on and off the brakes quickly.
+                            Successful race riding is a lot like paying taxes: You want to push the rules as far as you can without breaking them. There is a very fine line between optimum cornering and crashing, where outward, downward, and forward forces balance precisely. But rules are rules. "Speaking on behalf of physicists everywhere," Falco declares, "nothing that ever happens on a motorcycle breaks the laws of physics. In fact, motorcycles are excellent examples of just how well physics works."</p>
+                        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-                <canvas id="nationsChart" width="100" aria-label="Hello ARIA World" role="img"></canvas>
-                <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124466%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124466%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"> -->
+            <!-- RESULTS SECTION -->
+            <div class="section-divider"></div>
+
+
+            <!-- DATA TABLE USED TO GENERATE CHARTS -->
+            <h2 class="chart-title">Results Table</h2>
+            <div id="resultsTable" class="card"></div>
+            <!-- /END DATA TABLE USED TO GENERATE CHARTS -->
+
+            <!-- STATISTICS SECTION -->
             
-        </div>
 
-        <hr class="featurette-divider">
+            <div class="row featurette">
+            <div class="col-md-4">
+                <h2 class="chart-title">Winning nationalities.</h2>
+                <p class="chart-options">Change any options available to view the updated charts.</p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            All Classes
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item">MotoGP 500cc</a>
+                            <a class="dropdown-item">Moto2 250cc</a>
+                            <a class="dropdown-item">Moto3 125cc</a>
+                            <a class="dropdown-item">Other Classes</a>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-8 chart chart-container style="position: relative; height:40vh; width:80vw">
+                
+                    <canvas id="nationsChart" width="100" aria-label="Hello ARIA World" role="img"></canvas>
+                    <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124466%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124466%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"> -->
+                
+            </div>
 
-        <div class="row featurette">
-          <div class="col-md-4 order-md-2">
-            <h2 class="chart-title">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-8 order-md-1 chart">
-            <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124468%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124468%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 500px; height: 500px;"> -->
-          </div>
-        </div>
+            <hr class="featurette-divider">
 
-        <hr class="featurette-divider">
+            <div class="row featurette">
+            <div class="col-md-4 order-md-2">
+                <h2 class="chart-title">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-8 order-md-1 chart">
+                <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124468%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124468%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 500px; height: 500px;"> -->
+            </div>
+            </div>
 
-        <div class="row featurette">
-          <div class="col-md-4">
-            <h2 class="chart-title">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-8 chart">
-            <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124469%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124469%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 500px; height: 500px;"> -->
-          </div>
-        </div>
+            <hr class="featurette-divider">
 
-        <hr class="featurette-divider">
-        <!-- /END THE FEATURETTES -->
+            <div class="row featurette">
+            <div class="col-md-4">
+                <h2 class="chart-title">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-8 chart">
+                <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124469%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124469%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 500px; height: 500px;"> -->
+            </div>
+            </div>
+
+            <hr class="featurette-divider">
+            <!-- /END THE FEATURETTES -->
 
         </div><!-- /.container -->
 
 
-      <!-- FOOTER -->
-      <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>© 2017-2018 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-      </footer>
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>© 2017-2018 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        </footer>
     </main>
 
     <!-- Bootstrap core JavaScript

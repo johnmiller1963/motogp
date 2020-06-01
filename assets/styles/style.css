@@ -7,8 +7,8 @@ body {
     45deg,
     #272727,
     #363636 500px,
-    #444444 500px,
-    #444444 1000px);
+    rgb(68, 68, 68) 500px,
+    rgb(68,68,68) 1000px);
 }
 
 nav {
@@ -35,24 +35,31 @@ a:hover {
   height: inherit;
 }
 
+.card-img {
+    border-radius: 1%;
+}
+
 .card {
+    border-style: solid;
+    border-width: 1px;
     border-color: orange;
-    background-color: rgb(70, 70, 70);
-    color: rgb(220, 220, 220);
-    padding-right: 1px;
-    font-weight: 100;
-    line-height: 1.1rem;
+    border-radius: 1%;
+    background-color: rgb(68, 68, 68, 0.2);
+    color: rgb(220, 220, 220, 0.2);
+    margin-top: 100px;
     /* letter-spacing: -1px; */
 }
 
-.card-title {
-    color: rgb(220, 220, 220);
-    font-size: 1.5rem;
-    padding: 5px;
+.article-text {
+    display: none;
 }
 
-.card .card-img-top {
-    border-radius: 1.5%;
+.card-title {
+    margin-top: 10px;
+    background-color: rgba(68, 68, 68, 0.2);
+    color: rgb(220, 220, 220);
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 .section-divider {
@@ -80,8 +87,7 @@ a:hover {
     color: white;
     font-size: 1rem;
     font-weight: 100;
-    line-height: 1;
-   
+    line-height: 1; 
 }
 
  .featurette-image.pull-left {
@@ -97,73 +103,31 @@ a:hover {
     background-color: white;
 }
 
-@media (min-width: 1281px) {
+@media (max-width: 991.98px) {
     .carousel .carousel-item {
-        height: 28em; 
+        height: 18em; 
     }
-    main {
-    padding-top: 2em;
-    }
-    .max-height-text {
-        max-height: 325px;
-        overflow: auto;
-        /* border: 1px solid grey; */
-    }
-    #resultsTable {
-        min-height:325px;
-    }
-}
 
-@media (max-width: 1280px) {
-    .carousel .carousel-item {
-        height: 22em; 
-    }
     main {
-    padding-top: 2em;
+    padding-top: 1em;
     }
-    .max-height-text {
-        max-height: 300px;
-        overflow: auto;
-        /* border: 1px solid grey; */
-    }
-    #resultsTable {
-        min-height:300px;
-    }
-}
 
-@media (max-width: 1024px) {
-    .carousel .carousel-item {
-        height: 16em; 
-    }
-    main {
-    padding-top: 1.5em;
-    }
-    .max-height-text {
-        max-height: 285px;
-        overflow: auto;
-        /* border: 1px solid grey; */
-    }
     #resultsTable {
         min-height:285px;
     }
 }
 
-@media (max-width: 768px) {
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
     .carousel .carousel-item {
-        height: 10em; 
+        height: 28em; 
     }
+
     main {
-    padding-top: 1em;
+    padding-top: 2em;
     }
-    .max-height-text {
-        max-height: 265px;
-        overflow: auto;
-        /*border: 1px solid grey; */
-    }
+
     #resultsTable {
-        min-height:265px;
+        min-height:325px;
     }
-    /* #btnDisplayResults {
-        margin-inline-start: 5px;    
-    } */
 }
