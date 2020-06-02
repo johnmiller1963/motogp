@@ -54,6 +54,15 @@ a:hover {
     display: none;
 }
 
+.article-display {
+    margin-top: 10px;
+    color: rgb(220, 220, 220);
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
 .card-title {
     margin-top: 10px;
     background-color: rgba(68, 68, 68, 0.2);
@@ -129,5 +138,9 @@ a:hover {
 
     #resultsTable {
         min-height:325px;
+    }
+
+    #article-text-top {
+        display: none;
     }
 }

@@ -43,8 +43,9 @@ function startCarousel() {
 };
 
 function displayMe(){
-    document.getElementById("card2").style.display = "none"; 
-    document.getElementById("card3").style.display = "none"; 
+    alert(this);
+    /*document.getElementById("card2").style.display = "none"; 
+    document.getElementById("card3").style.display = "none"; */
 }
 
 /* Will be used to get latest 'Article' from Wikipedia api 
