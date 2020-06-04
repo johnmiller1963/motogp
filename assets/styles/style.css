@@ -47,7 +47,12 @@ a {
 }
 
 a:hover {
-    color: rgb(200, 145, 0);
+    color: rgb(260, 205, 60);
+}
+
+.pagelink {
+    padding-left: 20px;
+    font-size: 0.8rem;
 }
 
 .carousel .carousel-item > *:first-child {
@@ -99,8 +104,8 @@ h2 .card-title {
 }
 
 .article-display {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-top: 20px;
     color: rgb(220, 220, 220);
     font-size: 1rem;
@@ -112,6 +117,11 @@ h2 .card-title {
 
 .inline-content {
     max-width: 100%;
+}
+
+#resultsTable {
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .section-divider {
@@ -127,15 +137,6 @@ h2 .card-title {
   margin-top: −120px; /* Vertically center image with the text */
 }
 
-
-
-.chart-options {
-    color: white;
-    font-size: 1rem;
-    font-weight: 100;
-    line-height: 1; 
-}
-
  .featurette-image.pull-left {
   margin-right: 40px;
 }
@@ -147,6 +148,13 @@ h2 .card-title {
 /* Chart styling */
 .canvas {
     background-color: white;
+}
+
+.chart-options {
+    color: white;
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1; 
 }
 
 @media (max-width: 991.98px) {
@@ -161,6 +169,7 @@ h2 .card-title {
     #resultsTable {
         min-height:285px;
     }
+
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -174,7 +183,7 @@ h2 .card-title {
     }
 
     #resultsTable {
-        min-height:325px;
+        min-height:425px;
     }
 
 }

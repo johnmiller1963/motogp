@@ -2,6 +2,7 @@ $(document).ready( function () {
     yearsSince1949();
     startCarousel();
     buildHTMLTable();
+    smoothScroll();
 });
 
 /* Used to calulate the time in years since the championships started */
@@ -20,6 +21,24 @@ $( "#navSearch" ).keypress(function(e) {
         alert("Now searching the page for '" + str + "'!");
     };
 });
+
+function smoothScroll() {
+let anchorlinks = document.querySelectorAll('a[href^="#"]')
+ 
+for (let item of anchorlinks) { // relitere 
+    item.addEventListener('click', (e)=> {
+        let hashval = item.getAttribute('href')
+        let target = document.querySelector(hashval)
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+        history.pushState(null, null, hashval)
+        e.preventDefault()
+    })
+}
+};
+
 
 /* 
 This didn't work, but might be useful later?
@@ -89,7 +108,7 @@ $(this).fadeTo(10,1);
                             Successful race riding is a lot like paying taxes: You want to push the rules as far as you can without breaking them. There is a very fine line between optimum cornering and crashing, where outward, downward, and forward forces balance precisely. But rules are rules. "Speaking on behalf of physicists everywhere," Falco declares, "nothing that ever happens on a motorcycle breaks the laws of physics. In fact, motorcycles are excellent examples of just how well physics works."</p>`);
         break;
         case "card4":
-            $("#article-text-below").html(`Copyright <a href="https://www.boxrepsol.com/en/motogp-en/motogp-2-0-future-technologies-applied-to-motogp">BoxRepsol</a> The competition has become a laboratory for innovation and the development of cutting-edge technologies. Every year, we are witness to how new technologies that are applied at the MotoGP end up in the market. But what does the future hold in store for us? What new technologies might we see in use at the MotoGP in a few years' time?
+            $("#article-text-below").html(`Copyright <a href="https://www.boxrepsol.com/en/motogp-en/motogp-2-0-future-technologies-applied-to-motogp" target="_blank">BoxRepsol</a> The competition has become a laboratory for innovation and the development of cutting-edge technologies. Every year, we are witness to how new technologies that are applied at the MotoGP end up in the market. But what does the future hold in store for us? What new technologies might we see in use at the MotoGP in a few years' time?
                 <br>MotoGP 2.0: Future technologies applied to MotoGP<br><br>
                 
                 Printed spare parts<br>

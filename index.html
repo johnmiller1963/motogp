@@ -45,10 +45,10 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#btnDisplayResults">Data</a>
+              <a class="nav-link" href="#results">Data</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#statisticsheader">Statistics</a>
+              <a class="nav-link" href="#statistics">Statistics</a>
             </li>
              <!-- <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
@@ -218,14 +218,14 @@
             
         </div>
     <!--/Carousel Wrapper-->
-    
+    <a id="top"></a>
     <main role="main">
 
       <!-- Marketing messaging and featurettes
       ================================================== -->
       <!-- Wrap the rest of the page in another container to center all the content. -->
-        <div class="container-fluid">
-
+        <div class="container container-fluid">
+        
             <!-- Articles below the carousel -->
             <h2 id="article-header" class="mx-4">Click an article below to display more information</h2>
             <div class="row mx-4">
@@ -265,17 +265,23 @@
 
             <p id="article-text-below" class="article-display mx-4"></p>
             
+            <a id="results"></a>
+
+            <a class="pagelink" href="#top">return to articles</a>
+
             <!-- RESULTS SECTION -->
             <div class="section-divider"></div>
 
 
             <!-- DATA TABLE USED TO GENERATE CHARTS -->
-            <h2 class="chart-title mx-4">Results Table from 1949 until now</h2>
-            <div id="resultsTable" class="card mx-4"></div>
+            <h2 class="chart-title">Results Table from 1949 until now</h2>
+            <div id="resultsTable" class="card"></div>
             <!-- /END DATA TABLE USED TO GENERATE CHARTS -->
 
+            <br><a class="pagelink" href="#top">return to articles</a>
             <!-- STATISTICS SECTION -->
-            
+
+            <a id="statistics"></a>
 
             <div class="row featurette">
             <div class="col-md-4">
@@ -293,7 +299,7 @@
                         </div>
                     </div>
             </div>
-            <div class="col-md-8 chart chart-container style="position: relative; height:40vh; width:80vw">
+            <div class="col-md-8 chart chart-container style=" position: relative; height:40vh; width:80vw>
                 
                     <canvas id="nationsChart" width="100" aria-label="Hello ARIA World" role="img"></canvas>
                     <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124466%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124466%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"> -->
@@ -305,7 +311,7 @@
             <div class="row featurette">
             <div class="col-md-4 order-md-2">
                 <h2 class="chart-title">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <p class="article-display">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-8 order-md-1 chart">
                 <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124468%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124468%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 500px; height: 500px;"> -->
@@ -317,7 +323,7 @@
             <div class="row featurette">
             <div class="col-md-4">
                 <h2 class="chart-title">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <p class="article-display">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-8 chart">
                 <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124469%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124469%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 500px; height: 500px;"> -->
@@ -327,8 +333,9 @@
             <hr class="featurette-divider">
             <!-- /END THE FEATURETTES -->
 
+        
         </div><!-- /.container -->
-
+        <a class="pagelink" href="#top">return to articles</a>
 
         <!-- FOOTER -->
         <footer class="container">
