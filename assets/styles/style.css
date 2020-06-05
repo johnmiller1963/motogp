@@ -159,15 +159,38 @@ h2 .card-title {
 
 @media (max-width: 991.98px) {
     .carousel .carousel-item {
-        height: 18em; 
+        height: 10em; 
+    }
+
+    .container {
+        padding: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .row {
+        padding: 0px;
+        margin-left: 0.5rem!important;
+        margin-right: 0.5rem!important;
     }
 
     main {
     padding-top: 1em;
     }
 
+    .article-display {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
     #resultsTable {
-        min-height:285px;
+        min-height:325px;
+        margin-left: 1rem!important;
+        margin-right: 1rem!important;       
+    }
+
+    .card-title {
+        font-size: 0.8rem;
     }
 
 }
@@ -183,7 +206,7 @@ h2 .card-title {
     }
 
     #resultsTable {
-        min-height:425px;
+        min-height:450px;
     }
 
 }

@@ -3,6 +3,7 @@ $(document).ready( function () {
     startCarousel();
     buildHTMLTable();
     smoothScroll();
+    loadJsonFile();
 });
 
 /* Used to calulate the time in years since the championships started */
@@ -115,7 +116,7 @@ $(this).fadeTo(10,1);
                 3D printing technologies are advancing so rapidly that teams will soon inevitably have such printers in place of a warehouse full of spare pieces. The greatest setback presented by these systems today is the time it takes to produce printed pieces, but it is hoped this will improve as the technology is developed. The possibility of designing and manufacturing just about any motorcycle component at the track also opens up a wide range of options in terms of tailor-made solutions. The technology's adaptability will eventually demand that the technical team rely on an engineer, tasked with creating these pieces.<br><br>
                 
                 Communications<br>
-                Augmented reality helmets are already being used by mechanics and Box personnel at MotoGP. It is reasonable to assume that such tools will eventually reach the riders, who will use these technologies in order to be less reliant on other support elements, such as the electronic notices board. At the moment, all messages between the rider and the Box are regulated and controlled by a single central unit, but this needn't be the case forever, and we may soon witness a fully open means of communication. When this becomes a reality, all of the information about the motorcycle's status will be projected inside the helmet instead of on the screen on the control panel.
+                Augmented reality helmets are already being used by mechanics and Box personnel at MotoGP. It is reasonable to assume that such tools will eventually reach the riders, who will use these technologies in order to be less reliant on other support elements, such as the electronic notices board. At the moment, all messages between the rider and the Box are regulated and controlled by a single central unit, but this needn't be the case forever, and we may soon witness a fully open means of communication. When this becomes a reality, all of the information about the motorcycle's status will be projected inside the helmet instead of on the screen on the control panel.<br><br>
 
 				<img class="inline-content" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116747_Honda_Riding_Assist_e1.jpg" alt="Cuadro de mandos del prototipo Honda Riding Assist-e" itemprop="image" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116747_Honda_Riding_Assist_e1-900x603.jpg"/><br><br>
 
@@ -264,5 +265,63 @@ $(".dropdown-menu").click(function(){
   $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
 }); */
 
-/* Charts 
-Chart.defaults.global.defaultFontColor = 'white'; */
+/* Charts Data */
+function loadJsonFile() {
+    readJsonFile("assets/data/jsondata.json", function(text){
+    var data = JSON.parse(text);
+
+    console.log(`Should be 71 years: ${data.length}`);
+    console.log(`Should be 1950 for second year: ${data[1].Year}`);
+    console.log(`Should be array 0 - 70: ${getTableHeaders(data)}`);
+    console.log(`Should be array of Col Titles: ${getTableHeaders(data[0])}`);
+    console.log(`Should be the full row data array: ${getAllData(data)}`);
+
+    });
+};
+
+function readJsonFile(myFile, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", myFile, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+};
+
+function getTableHeaders(obj) {
+    var tableHeaders = [];
+
+    Object.keys(obj).forEach(function(key) {
+        tableHeaders.push(key);
+    });
+
+    return tableHeaders;
+};
+
+function getAllData(obj) {
+    var tableRows = [];
+        /* alert(obj.length); */
+        
+        obj.forEach(function(item) {
+            var dataCol = [];
+
+            Object.keys(item).forEach(function(key) {
+                var dataCol = item[key].toString();
+                tableRows.push(dataCol);
+            });
+        });
+    
+    var arr = tableRows
+    let counts = {};
+    arr.forEach(el => counts[el] = 1  + (counts[el] || 0))
+    console.log(counts);
+
+
+    return tableRows;
+};
+
+/* Chart.defaults.global.defaultFontColor = 'white'; */
+
