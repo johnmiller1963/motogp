@@ -270,13 +270,16 @@ function loadJsonFile() {
     readJsonFile("assets/data/jsondata.json", function(text){
     var data = JSON.parse(text);
 
-    console.log(`Should be 71 years: ${data.length}`);
+    /* console.log(`Should be 71 years: ${data.length}`);
     console.log(`Should be 1950 for second year: ${data[1].Year}`);
     console.log(`Should be array 0 - 70: ${getTableHeaders(data)}`);
     console.log(`Should be array of Col Titles: ${getTableHeaders(data[0])}`);
     console.log(`Should be the full row data array: ${getAllData(data)}`);
-
-    });
+    console.log(`Should be the full row data array: ${getAllCountryCounts(data)}`); */
+    console.log(`Should list all countries with counts: ${getAllCountryCounts(data)}`);
+    //alert(getAllCountryCounts(data).toString());
+    console.log(getAllCountryCounts(data));
+});
 };
 
 function readJsonFile(myFile, callback) {
@@ -303,7 +306,6 @@ function getTableHeaders(obj) {
 
 function getAllData(obj) {
     var tableRows = [];
-        /* alert(obj.length); */
         
         obj.forEach(function(item) {
             var dataCol = [];
@@ -317,10 +319,68 @@ function getAllData(obj) {
     var arr = tableRows
     let counts = {};
     arr.forEach(el => counts[el] = 1  + (counts[el] || 0))
-    console.log(counts);
+    /* console.log(counts); */
 
 
     return tableRows;
+};
+
+function getAllCountryCounts(obj) {
+    var tableRows = [];
+        // alert(obj.length);
+        
+        obj.forEach(function(item) {
+            var dataCol = [];
+
+            Object.keys(item).forEach(function(key) {
+               
+                // console.log(`Keys used to read the data in: ${key}`);
+                if (key.search("Nation") >= 0) {
+                    if (item[key] !=="") {
+                        var dataCol = item[key];
+                        //console.log(key);
+                        //console.log(item[key]);
+                        tableRows.push(dataCol);
+                    };
+                };
+            });
+        });
+    
+    let counts = {};
+    tableRows.forEach(el => counts[el] = 1  + (counts[el] || 0));
+
+    //console.log(Array.isArray(counts));
+
+    //console.log(counts);
+
+    return counts;
+
+/*
+    //alert(tableRows[0]);
+    //var arr = tableRows
+    alert(tableRows);
+    /* var found = counts.find(name == "UK");
+    const result = counts.filter(counts[el] => counts[el].length > 0); */
+
+    /* let countries = [];
+    Object.keys(tableRows).forEach(function (item) {
+    if (tableRows[item] !=="") {
+        //console.log(tableRows[item]); // value
+        countries.push(tableRows[item]);
+        };
+    });
+
+    let counts = {};
+    countries.forEach(el => counts[el] = 1  + (counts[el] || 0));
+
+    console.log(typeof counts);
+
+    console.log(Array.isArray(counts));
+
+    console.log(counts);
+
+    return counts;
+    */
 };
 
 /* Chart.defaults.global.defaultFontColor = 'white'; */
