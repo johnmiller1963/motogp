@@ -275,10 +275,9 @@ function loadJsonFile() {
     console.log(`Should be array 0 - 70: ${getTableHeaders(data)}`);
     console.log(`Should be array of Col Titles: ${getTableHeaders(data[0])}`);
     console.log(`Should be the full row data array: ${getAllData(data)}`);
-    console.log(`Should be the full row data array: ${getAllCountryCounts(data)}`); */
-    console.log(`Should list all countries with counts: ${getAllCountryCounts(data)}`);
-    //alert(getAllCountryCounts(data).toString());
-    console.log(getAllCountryCounts(data));
+    console.log(`Should be the full row data array: ${getAllCountryCounts(data)}`);
+    console.log(`Should list all countries with counts: ${JSON.stringify(getAllCountryCounts(data))}`); */
+    getAllCountryCounts(data);
 });
 };
 
@@ -325,7 +324,55 @@ function getAllData(obj) {
     return tableRows;
 };
 
-function getAllCountryCounts(obj) {
+function getAllCountryCounts(obj, optionalArg = "Nation") {
+    let tableRows = [];
+        //alert(obj.length);
+        
+        obj.forEach(function(item) {
+            let dataLabels = [];
+
+            Object.keys(item).forEach(function(key) {
+               
+                // console.log(`Keys used to read the data in: ${key}`);
+                if (key.search("Nation") >= 0) {
+                    if (item[key] !=="") {
+                        let dataLabels = item[key];
+                        //console.log(key);
+                        //console.log(item[key]);
+                        tableRows.push(dataLabels);
+                    };
+                };
+            });
+        });
+    
+    console.log(tableRows);
+    console.log(`Is tableRows an array? ${Array.isArray(tableRows)}`);
+    
+    let counts = [];
+    tableRows.forEach(el => counts[el] = 1  + (counts[el] || 0));
+
+    let labels=Object.keys(counts);
+    let data=Object.values(counts);
+
+    let chartData = [Object.keys(counts),Object.values(counts)];
+
+    console.log(counts);
+    console.log(labels);
+    console.log(data);
+    return chartData;
+   
+    /*
+    //tableRows.forEach(el => (data[el] || 0));
+    //console.log(counts);
+    let test=[];
+    console.log(labels);
+    console.log(data);
+    test=[labels,data];
+    console.log(`Country: ${test[0][2]} has ${test[1][2]} wins`);
+    return counts; */
+};
+
+/* function getAllCountryCounts(obj) {
     var tableRows = [];
         // alert(obj.length);
         
@@ -349,39 +396,30 @@ function getAllCountryCounts(obj) {
     let counts = {};
     tableRows.forEach(el => counts[el] = 1  + (counts[el] || 0));
 
-    //console.log(Array.isArray(counts));
-
-    //console.log(counts);
-
     return counts;
-
-/*
-    //alert(tableRows[0]);
-    //var arr = tableRows
-    alert(tableRows);
-    /* var found = counts.find(name == "UK");
-    const result = counts.filter(counts[el] => counts[el].length > 0); */
-
-    /* let countries = [];
-    Object.keys(tableRows).forEach(function (item) {
-    if (tableRows[item] !=="") {
-        //console.log(tableRows[item]); // value
-        countries.push(tableRows[item]);
-        };
-    });
-
-    let counts = {};
-    countries.forEach(el => counts[el] = 1  + (counts[el] || 0));
-
-    console.log(typeof counts);
-
-    console.log(Array.isArray(counts));
-
-    console.log(counts);
-
-    return counts;
-    */
-};
+}; */
 
 /* Chart.defaults.global.defaultFontColor = 'white'; */
 
+function buildNationsChart(chartData) {
+var ctx = document.getElementById('nationsChart');
+//console.log(chartData);
+var myChart = new Chart(ctx, {
+// The type of chart we want to create
+    type: 'pie',
+
+    // The data for our dataset
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: ["red", "blue", "green", "blue", "red", "blue", "black", "white"], 
+            borderColor: 'rgb(255, 99, 132)',
+            data: [1, 10, 5, 2, 20, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+};
