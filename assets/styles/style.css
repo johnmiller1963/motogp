@@ -137,21 +137,21 @@ h2 .card-title {
     margin-top: 60px;
 }
 
- .featurette-image {
+.featurette-image {
   margin-top: −120px; /* Vertically center image with the text */
 }
 
- .featurette-image.pull-left {
+.featurette-image.pull-left {
   margin-right: 40px;
 }
 
- .featurette-image.pull-right {
+.featurette-image.pull-right {
   margin-left: 40px;
 }
 
 /* Chart styling */
-.canvas {
-    background-color: white;
+#nationsChart {
+    background-color:rgba(40, 40, 40,0.8);
 }
 
 .chart-options {

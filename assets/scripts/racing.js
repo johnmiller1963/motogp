@@ -277,7 +277,7 @@ function loadJsonFile() {
     console.log(`Should be the full row data array: ${getAllData(data)}`);
     console.log(`Should be the full row data array: ${getAllCountryCounts(data)}`);
     console.log(`Should list all countries with counts: ${JSON.stringify(getAllCountryCounts(data))}`); */
-    getAllCountryCounts(data);
+    getChampionshipWins(data,"Nation",8);
 });
 };
 
@@ -324,7 +324,7 @@ function getAllData(obj) {
     return tableRows;
 };
 
-function getAllCountryCounts(obj, optionalArg = "Nation") {
+function getChampionshipWins(obj, optType = "Nation", optQty = 10) {
     let tableRows = [];
         //alert(obj.length);
         
@@ -334,92 +334,178 @@ function getAllCountryCounts(obj, optionalArg = "Nation") {
             Object.keys(item).forEach(function(key) {
                
                 // console.log(`Keys used to read the data in: ${key}`);
-                if (key.search("Nation") >= 0) {
+                if (key.search(optType) >= 0) {
                     if (item[key] !=="") {
                         let dataLabels = item[key];
-                        //console.log(key);
-                        //console.log(item[key]);
                         tableRows.push(dataLabels);
                     };
                 };
             });
         });
     
-    console.log(tableRows);
-    console.log(`Is tableRows an array? ${Array.isArray(tableRows)}`);
-    
     let counts = [];
     tableRows.forEach(el => counts[el] = 1  + (counts[el] || 0));
-
+   
     let labels=Object.keys(counts);
     let data=Object.values(counts);
 
-    let chartData = [Object.keys(counts),Object.values(counts)];
+    var list = [];
+    for (var j = 0; j < labels.length; j++) 
+        list.push({'name': labels[j], 'wins': data[j]});
 
-    console.log(counts);
-    console.log(labels);
-    console.log(data);
-    return chartData;
-   
-    /*
-    //tableRows.forEach(el => (data[el] || 0));
-    //console.log(counts);
-    let test=[];
-    console.log(labels);
-    console.log(data);
-    test=[labels,data];
-    console.log(`Country: ${test[0][2]} has ${test[1][2]} wins`);
-    return counts; */
+    list.sort(function(a, b) {
+        return ((b.wins < a.wins) ? -1 : ((a.wins == b.wins) ? 0 : 1));
+    });
+
+    for (var k = 0; k < list.length; k++) {
+        labels[k] = list[k].name;
+        data[k] = list[k].wins;
+    }
+    if (optQty>=1) {
+    labelsSliced = labels.slice(0,optQty);
+    dataSliced = data.slice(0,optQty);
+    } else {
+    labelsSliced = labels.slice(0,9);
+    dataSliced = data.slice(0,9);       
+    };
+
+    let chartData = [labelsSliced,dataSliced];
+
+    buildNationsChart(chartData);
 };
 
-/* function getAllCountryCounts(obj) {
-    var tableRows = [];
-        // alert(obj.length);
-        
-        obj.forEach(function(item) {
-            var dataCol = [];
 
-            Object.keys(item).forEach(function(key) {
-               
-                // console.log(`Keys used to read the data in: ${key}`);
-                if (key.search("Nation") >= 0) {
-                    if (item[key] !=="") {
-                        var dataCol = item[key];
-                        //console.log(key);
-                        //console.log(item[key]);
-                        tableRows.push(dataCol);
-                    };
-                };
-            });
-        });
-    
-    let counts = {};
-    tableRows.forEach(el => counts[el] = 1  + (counts[el] || 0));
+Chart.defaults.global.defaultFontColor = "rgb(255,255,255)";
+Chart.defaults.global.responsiveAnimationDuration=1000;
 
-    return counts;
-}; */
-
-/* Chart.defaults.global.defaultFontColor = 'white'; */
-
-function buildNationsChart(chartData) {
+function buildNationsChart(obj) {
 var ctx = document.getElementById('nationsChart');
-//console.log(chartData);
+//console.log(obj[1]);
 var myChart = new Chart(ctx, {
 // The type of chart we want to create
-    type: 'pie',
-
+    type: "bar",
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: obj[0],
         datasets: [{
-            label: 'My First dataset',
-            backgroundColor: ["red", "blue", "green", "blue", "red", "blue", "black", "white"], 
-            borderColor: 'rgb(255, 99, 132)',
-            data: [1, 10, 5, 2, 20, 30, 45]
+            label: "Championship wins",
+            data: obj[1],
+            backgroundColor: [
+                'rgba(78,55,224,0.5)',
+                'rgba(70,235,59,0.5)',
+                'rgba(128,95,255,0.5)',
+                'rgba(162,255,62,0.5)',
+                'rgba(255,35,181,0.5)',
+                'rgba(1,218,96,0.5)',
+                'rgba(1,103,232,0.5)',
+                'rgba(185,224,0,0.5)',
+                'rgba(98,0,89,0.5)',
+                'rgba(184,255,124,0.5)',
+                'rgba(137,0,99,0.5)',
+                'rgba(1,241,173,0.5)'
+            ],
+                /* rgb(255,112,209),
+                rgb(134,187,0),
+                rgb(255,92,163),
+                rgb(1,176,79),
+                rgb(255,87,56),
+                rgb(0,244,254),
+                rgb(255,151,12),
+                rgb(131,166,255),
+                rgb(205,176,0),
+                rgb(1,93,147),
+                rgb(255,233,102),
+                rgb(22,0,33),
+                rgb(245,255,156),
+                rgb(75,0,59),
+                rgb(0,220,179),
+                rgb(100,0,13),
+                rgb(2,206,223),
+                rgb(163,80,0),
+                rgb(117,199,255),
+                rgb(170,117,0),
+                rgb(230,185,255),
+                rgb(1,124,13),
+                rgb(97,0,39),
+                rgb(255,247,204),
+                rgb(0,22,32),
+                rgb(255,175,119),
+                rgb(0,57,74),
+                rgb(255,148,146),
+                rgb(0,86,41),
+                rgb(255,183,189),
+                rgb(62,98,0),
+                rgb(224,241,255),
+                rgb(76,22,0),
+                rgb(0,153,131),
+                rgb(122,48,0),
+                rgb(1,119,138),
+                rgb(73,77,0),
+                rgb(57,42,0)], */
+            borderColor: [
+                'rgba(78,55,224,0.5)',
+                'rgba(70,235,59,0.5)',
+                'rgba(128,95,255,0.5)',
+                'rgba(162,255,62,0.5)',
+                'rgba(255,35,181,0.5)',
+                'rgba(1,218,96,0.5)',
+                'rgba(1,103,232,0.5)',
+                'rgba(185,224,0,0.5)',
+                'rgba(98,0,89,0.5)',
+                'rgba(184,255,124,0.5)',
+                'rgba(137,0,99,0.5)',
+                'rgba(1,241,173,0.5)'
+            ],
+                /* rgb(255,112,209),
+                rgb(134,187,0),
+                rgb(255,92,163),
+                rgb(1,176,79),
+                rgb(255,87,56),
+                rgb(0,244,254),
+                rgb(255,151,12),
+                rgb(131,166,255),
+                rgb(205,176,0),
+                rgb(1,93,147),
+                rgb(255,233,102),
+                rgb(22,0,33),
+                rgb(245,255,156),
+                rgb(75,0,59),
+                rgb(0,220,179),
+                rgb(100,0,13),
+                rgb(2,206,223),
+                rgb(163,80,0),
+                rgb(117,199,255),
+                rgb(170,117,0),
+                rgb(230,185,255),
+                rgb(1,124,13),
+                rgb(97,0,39),
+                rgb(255,247,204),
+                rgb(0,22,32),
+                rgb(255,175,119),
+                rgb(0,57,74),
+                rgb(255,148,146),
+                rgb(0,86,41),
+                rgb(255,183,189),
+                rgb(62,98,0),
+                rgb(224,241,255),
+                rgb(76,22,0),
+                rgb(0,153,131),
+                rgb(122,48,0),
+                rgb(1,119,138),
+                rgb(73,77,0),
+                rgb(57,42,0)], */
         }]
     },
 
     // Configuration options go here
-    options: {}
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
 });
 };

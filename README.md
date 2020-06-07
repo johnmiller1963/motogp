@@ -3,7 +3,7 @@ Statistical analysis of International motorcycle racing
 
 http://tabulator.info/
 
-
+https://medialab.github.io/iwanthue/
 
 Get Wiki API working for introduction (always up to date)
 
