@@ -1,9 +1,14 @@
+var gblData;
+var myChartWins;
+
 $(document).ready( function () {
     yearsSince1949();
     startCarousel();
     buildHTMLTable();
     smoothScroll();
     loadJsonFile();
+    //alert("hello");
+    //getChampionshipWins();
 });
 
 /* Used to calulate the time in years since the championships started */
@@ -33,11 +38,11 @@ for (let item of anchorlinks) { // relitere
         target.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
-        })
+        });
         history.pushState(null, null, hashval)
         e.preventDefault()
-    })
-}
+    });
+};
 };
 
 
@@ -137,11 +142,11 @@ $(this).fadeTo(10,1);
 
 function fadeArticles() {
     $(".article").fadeTo(10,0.25);
-}
+};
 
 function restoreArticles() {
     $(".article").fadeTo(100,1);
-}
+};
 
 /* Will be used to get latest 'Article' from Wikipedia api 
 Not working yet */
@@ -255,8 +260,9 @@ $("#resultsTable").tabulator("setData", "assets/data/jsondata.json");
 
  /* Update drop-down menu following user selection 
  Not working correctly */
-$(".dropdown-menu").click(function(){
-    $(this).parents(".input-group-btn").find('.btn').text($(this).text());
+$(".dropdown-menu li a").click(function(){
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 });
 
  /* $(".dropdown-menu").click(function(){
@@ -265,23 +271,24 @@ $(".dropdown-menu").click(function(){
   $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
 }); */
 
+
 /* Charts Data */
 function loadJsonFile() {
     readJsonFile("assets/data/jsondata.json", function(text){
-    var data = JSON.parse(text);
-
-    /* console.log(`Should be 71 years: ${data.length}`);
-    console.log(`Should be 1950 for second year: ${data[1].Year}`);
-    console.log(`Should be array 0 - 70: ${getTableHeaders(data)}`);
-    console.log(`Should be array of Col Titles: ${getTableHeaders(data[0])}`);
-    console.log(`Should be the full row data array: ${getAllData(data)}`);
-    console.log(`Should be the full row data array: ${getAllCountryCounts(data)}`);
-    console.log(`Should list all countries with counts: ${JSON.stringify(getAllCountryCounts(data))}`); */
-    getChampionshipWins(data,"Nation",8);
-});
+    gblData = JSON.parse(text);
+    //alert(gblData);
+    //callback(JSON.parse(text));
+    //console.log(`Should be 71 years: ${data.length}`);
+    //console.log(`Should be 1950 for second year: ${data[1].Year}`);
+    //console.log(`Should be array 0 - 70: ${getTableHeaders(data)}`);
+    //console.log(`Should be array of Col Titles: ${getTableHeaders(data[0])}`);
+    //console.log(`Should be the full row data array: ${getAllData(data)}`);
+    getChampionshipWins("Nation",10);
+    //return data;
+    });
 };
 
-function readJsonFile(myFile, callback) {
+function readJsonFile(myFile,callback) {
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
     rawFile.open("GET", myFile, true);
@@ -293,6 +300,7 @@ function readJsonFile(myFile, callback) {
     rawFile.send(null);
 };
 
+
 function getTableHeaders(obj) {
     var tableHeaders = [];
 
@@ -302,6 +310,7 @@ function getTableHeaders(obj) {
 
     return tableHeaders;
 };
+
 
 function getAllData(obj) {
     var tableRows = [];
@@ -320,15 +329,17 @@ function getAllData(obj) {
     arr.forEach(el => counts[el] = 1  + (counts[el] || 0))
     /* console.log(counts); */
 
-
     return tableRows;
 };
 
-function getChampionshipWins(obj, optType = "Nation", optQty = 10) {
+
+function getChampionshipWins(optType = "Nation", optQty = 10) {
+
+    let obj = gblData;
     let tableRows = [];
-        //alert(obj.length);
+        //alert(gblData.length);
         
-        obj.forEach(function(item) {
+        obj.forEach(function(item) { 
             let dataLabels = [];
 
             Object.keys(item).forEach(function(key) {
@@ -371,141 +382,213 @@ function getChampionshipWins(obj, optType = "Nation", optQty = 10) {
 
     let chartData = [labelsSliced,dataSliced];
 
-    buildNationsChart(chartData);
+    //function buildNationsChart(obj) {
+    var ctx = document.getElementById('nationsChart').getContext("2d");
+    //console.log(obj[1]);
+
+    /* if (typeof(this.myChartWins) != "undefined") {
+        console.log("undefined myChartWins");
+            this.myChartWins.destroy();
+        };
+
+    //console.log(myChartWins);
+    if (window.myChartWins) {
+        console.log("undefined myChartWins");
+        myChartWins.destroy();
+      };
+    */ 
+
+    myChartWins = new Chart(ctx, {
+    // The type of chart we want to create
+        type: "bar",
+        // The data for our dataset
+        data: {
+            labels: chartData[0],
+            datasets: [{
+                label: "Championship wins",
+                data: chartData[1],
+                backgroundColor: shuffle(colours75()),
+                //borderColor: "rgb(255,255,255)",
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    
+    if (chartData[0].length>5) {
+        Chart.defaults.global.defaultFontSize = 10;
+    } else {
+        Chart.defaults.global.defaultFontSize = 12;
+    };
+    //window.location.reload(1);
+    //console.log(myChartWins);
 };
 
 
+function btnWins(clicked) {
+let qty = $("#txtWins").val();
+let type = clicked.slice(3, clicked.length);
+
+myChartWins.destroy();
+
+    switch(clicked) {
+        case "btnNation":
+            getChampionshipWins(type,qty);
+        break;
+        case "btnRider":
+            getChampionshipWins(type,qty);
+        break;
+        case "btnMake":
+            getChampionshipWins(type,qty);
+        break;
+        case "txtWins":
+            if ($("#optNation").is(":checked")) {
+                getChampionshipWins("Nation",qty);
+            } else if ($("#optRider").is(":checked")) {
+                getChampionshipWins("Rider",qty);
+            } else {
+                getChampionshipWins("Make",qty);
+            };
+        break;
+    default:
+        getChampionshipWins("Nation",10);
+    };
+};
+
+
+
 Chart.defaults.global.defaultFontColor = "rgb(255,255,255)";
-Chart.defaults.global.responsiveAnimationDuration=1000;
+Chart.defaults.global.responsiveAnimationDuration=50;
 
-function buildNationsChart(obj) {
-var ctx = document.getElementById('nationsChart');
-//console.log(obj[1]);
-var myChart = new Chart(ctx, {
-// The type of chart we want to create
-    type: "bar",
-    // The data for our dataset
-    data: {
-        labels: obj[0],
-        datasets: [{
-            label: "Championship wins",
-            data: obj[1],
-            backgroundColor: [
-                'rgba(78,55,224,0.5)',
-                'rgba(70,235,59,0.5)',
-                'rgba(128,95,255,0.5)',
-                'rgba(162,255,62,0.5)',
-                'rgba(255,35,181,0.5)',
-                'rgba(1,218,96,0.5)',
-                'rgba(1,103,232,0.5)',
-                'rgba(185,224,0,0.5)',
-                'rgba(98,0,89,0.5)',
-                'rgba(184,255,124,0.5)',
-                'rgba(137,0,99,0.5)',
-                'rgba(1,241,173,0.5)'
-            ],
-                /* rgb(255,112,209),
-                rgb(134,187,0),
-                rgb(255,92,163),
-                rgb(1,176,79),
-                rgb(255,87,56),
-                rgb(0,244,254),
-                rgb(255,151,12),
-                rgb(131,166,255),
-                rgb(205,176,0),
-                rgb(1,93,147),
-                rgb(255,233,102),
-                rgb(22,0,33),
-                rgb(245,255,156),
-                rgb(75,0,59),
-                rgb(0,220,179),
-                rgb(100,0,13),
-                rgb(2,206,223),
-                rgb(163,80,0),
-                rgb(117,199,255),
-                rgb(170,117,0),
-                rgb(230,185,255),
-                rgb(1,124,13),
-                rgb(97,0,39),
-                rgb(255,247,204),
-                rgb(0,22,32),
-                rgb(255,175,119),
-                rgb(0,57,74),
-                rgb(255,148,146),
-                rgb(0,86,41),
-                rgb(255,183,189),
-                rgb(62,98,0),
-                rgb(224,241,255),
-                rgb(76,22,0),
-                rgb(0,153,131),
-                rgb(122,48,0),
-                rgb(1,119,138),
-                rgb(73,77,0),
-                rgb(57,42,0)], */
-            borderColor: [
-                'rgba(78,55,224,0.5)',
-                'rgba(70,235,59,0.5)',
-                'rgba(128,95,255,0.5)',
-                'rgba(162,255,62,0.5)',
-                'rgba(255,35,181,0.5)',
-                'rgba(1,218,96,0.5)',
-                'rgba(1,103,232,0.5)',
-                'rgba(185,224,0,0.5)',
-                'rgba(98,0,89,0.5)',
-                'rgba(184,255,124,0.5)',
-                'rgba(137,0,99,0.5)',
-                'rgba(1,241,173,0.5)'
-            ],
-                /* rgb(255,112,209),
-                rgb(134,187,0),
-                rgb(255,92,163),
-                rgb(1,176,79),
-                rgb(255,87,56),
-                rgb(0,244,254),
-                rgb(255,151,12),
-                rgb(131,166,255),
-                rgb(205,176,0),
-                rgb(1,93,147),
-                rgb(255,233,102),
-                rgb(22,0,33),
-                rgb(245,255,156),
-                rgb(75,0,59),
-                rgb(0,220,179),
-                rgb(100,0,13),
-                rgb(2,206,223),
-                rgb(163,80,0),
-                rgb(117,199,255),
-                rgb(170,117,0),
-                rgb(230,185,255),
-                rgb(1,124,13),
-                rgb(97,0,39),
-                rgb(255,247,204),
-                rgb(0,22,32),
-                rgb(255,175,119),
-                rgb(0,57,74),
-                rgb(255,148,146),
-                rgb(0,86,41),
-                rgb(255,183,189),
-                rgb(62,98,0),
-                rgb(224,241,255),
-                rgb(76,22,0),
-                rgb(0,153,131),
-                rgb(122,48,0),
-                rgb(1,119,138),
-                rgb(73,77,0),
-                rgb(57,42,0)], */
-        }]
-    },
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-    // Configuration options go here
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+};
+
+function colours75() {
+    let colours = [
+        'rgba(204,75,253,0.3)',
+        'rgba(0,206,82,0.3)',
+        'rgba(0,166,249,0.3)',
+        'rgba(226,1,89,0.3)',
+        'rgba(205,222,62,0.3)',
+        'rgba(0,117,198,0.3)',
+        'rgba(97,172,0,0.3)',
+        'rgba(233,161,255,0.3)',
+        'rgba(197,255,138,0.3)',
+        'rgba(158,108,211,0.3)',
+        'rgba(146,231,66,0.3)',
+        'rgba(255,122,185,0.3)',
+        'rgba(97,156,78,0.3)',
+        'rgba(85,201,191,0.3)',
+        'rgba(247,0,40,0.3)',
+        'rgba(225,88,70,0.3)',
+        'rgba(207,191,63,0.3)',
+        'rgba(209,116,148,0.3)',
+        'rgba(209,140,49,0.3)',
+        'rgba(157,141,211,0.3)',
+        'rgba(122,221,158,0.3)',
+        'rgba(220,77,194,0.3)',
+        'rgba(219,109,112,0.3)',
+        'rgba(190,167,99,0.3)',
+        'rgba(250,115,0.3)',
+        'rgba(204,75,253,0.3)',
+        'rgba(0,206,82,0.3)',
+        'rgba(0,166,249,0.3)',
+        'rgba(226,1,89,0.3)',
+        'rgba(205,222,62,0.3)',
+        'rgba(0,117,198,0.3)',
+        'rgba(97,172,0,0.3)',
+        'rgba(233,161,255,0.3)',
+        'rgba(197,255,138,0.3)',
+        'rgba(158,108,211,0.3)',
+        'rgba(146,231,66,0.3)',
+        'rgba(255,122,185,0.3)',
+        'rgba(97,156,78,0.3)',
+        'rgba(85,201,191,0.3)',
+        'rgba(247,0,40,0.3)',
+        'rgba(225,88,70,0.3)',
+        'rgba(207,191,63,0.3)',
+        'rgba(209,116,148,0.3)',
+        'rgba(209,140,49,0.3)',
+        'rgba(157,141,211,0.3)',
+        'rgba(122,221,158,0.3)',
+        'rgba(220,77,194,0.3)',
+        'rgba(219,109,112,0.3)',
+        'rgba(190,167,99,0.3)',
+        'rgba(250,115,0.3)',
+        'rgba(204,75,253,0.3)',
+        'rgba(0,206,82,0.3)',
+        'rgba(0,166,249,0.3)',
+        'rgba(226,1,89,0.3)',
+        'rgba(205,222,62,0.3)',
+        'rgba(0,117,198,0.3)',
+        'rgba(97,172,0,0.3)',
+        'rgba(233,161,255,0.3)',
+        'rgba(197,255,138,0.3)',
+        'rgba(158,108,211,0.3)',
+        'rgba(146,231,66,0.3)',
+        'rgba(255,122,185,0.3)',
+        'rgba(97,156,78,0.3)',
+        'rgba(85,201,191,0.3)',
+        'rgba(247,0,40,0.3)',
+        'rgba(225,88,70,0.3)',
+        'rgba(207,191,63,0.3)',
+        'rgba(209,116,148,0.3)',
+        'rgba(209,140,49,0.3)',
+        'rgba(157,141,211,0.3)',
+        'rgba(122,221,158,0.3)',
+        'rgba(220,77,194,0.3)',
+        'rgba(219,109,112,0.3)',
+        'rgba(190,167,99,0.3)',
+        'rgba(250,115,0.3)',
+        'rgba(204,75,253,0.3)',
+        'rgba(0,206,82,0.3)',
+        'rgba(0,166,249,0.3)',
+        'rgba(226,1,89,0.3)',
+        'rgba(205,222,62,0.3)',
+        'rgba(0,117,198,0.3)',
+        'rgba(97,172,0,0.3)',
+        'rgba(233,161,255,0.3)',
+        'rgba(197,255,138,0.3)',
+        'rgba(158,108,211,0.3)',
+        'rgba(146,231,66,0.3)',
+        'rgba(255,122,185,0.3)',
+        'rgba(97,156,78,0.3)',
+        'rgba(85,201,191,0.3)',
+        'rgba(247,0,40,0.3)',
+        'rgba(225,88,70,0.3)',
+        'rgba(207,191,63,0.3)',
+        'rgba(209,116,148,0.3)',
+        'rgba(209,140,49,0.3)',
+        'rgba(157,141,211,0.3)',
+        'rgba(122,221,158,0.3)',
+        'rgba(220,77,194,0.3)',
+        'rgba(219,109,112,0.3)',
+        'rgba(190,167,99,0.3)'
+        ]
+    return colours
 };

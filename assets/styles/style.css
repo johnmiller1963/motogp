@@ -130,7 +130,8 @@ h2 .card-title {
 
  .featurette {
   padding-top: 120px;
-  overflow: hidden; /* Clear floats */
+  /* overflow: hidden; /* Clear floats */
+  overflow:auto;
 }
 
 .featurette-divider {
@@ -149,9 +150,20 @@ h2 .card-title {
   margin-left: 40px;
 }
 
+.btn-sm {
+    font-size: 0.8rem;
+    min-width: 100px;
+    /* background-color: orange; */
+}
+
+#txtWins {
+    max-width: 40px;
+    font-size: 0.8rem;
+}
+
 /* Chart styling */
 #nationsChart {
-    background-color:rgba(40, 40, 40,0.8);
+    background-color:rgba(40, 40, 40,0.6);
 }
 
 .chart-options {
