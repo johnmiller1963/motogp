@@ -11,6 +11,7 @@ $(document).ready( function () {
     //getChampionshipWins();
 });
 
+
 /* Used to calulate the time in years since the championships started */
 function yearsSince1949() {
     var dt2=new Date();
@@ -18,7 +19,8 @@ function yearsSince1949() {
     var diff =(dt2.getTime() - dt1.getTime()) / 1000;
     diff /= (60 * 60 * 24);
     return Math.abs(Math.round(diff/365.25));
- };
+};
+
 
 /* Will be used to search the page eg riders, makes etc */
 $( "#navSearch" ).keypress(function(e) {
@@ -27,6 +29,7 @@ $( "#navSearch" ).keypress(function(e) {
         alert("Now searching the page for '" + str + "'!");
     };
 });
+
 
 function smoothScroll() {
 let anchorlinks = document.querySelectorAll('a[href^="#"]')
@@ -41,20 +44,10 @@ for (let item of anchorlinks) { // relitere
         });
         history.pushState(null, null, hashval)
         e.preventDefault()
-    });
-};
-};
-
-
-/* 
-This didn't work, but might be useful later?
-$(document).keyup(function(event) {
-    if ((event.key == 'Enter') && $("#navSearch").is(":focus")) {
-        var str = $("#navSearch").val();
-        alert("Now searching the page for '" + str + "'!");
+        });
     };
-}); 
-*/
+};
+
 
 /* Used to feed following images into the slider/carousel */
 function startCarousel() {
@@ -67,23 +60,22 @@ function startCarousel() {
 	});
 };
 
+
 $(".article").click(function(){
 var selection = this.id;
 var em = document.getElementById(this.id);
 var opac = window.getComputedStyle(em).getPropertyValue("opacity");
 var myElement = document.querySelector('#article-text-below');
-/* alert(opac);
-alert(myElement.innerText.length); */
 
-if (opac>0.5 && myElement.innerText.length>0) {
-    restoreArticles();
-    myElement.innerText="";
-    /* alert("Shouldn't be here!"); */
-    end;
-};
+    if (opac>0.5 && myElement.innerText.length>0) {
+        restoreArticles();
+        myElement.innerText="";
+        /* alert("Shouldn't be here!"); */
+        end;
+    };
 
-fadeArticles();
-$(this).fadeTo(10,1);
+    fadeArticles();
+    $(this).fadeTo(10,1);
 
     switch(selection) {
         case "card1":
@@ -123,30 +115,33 @@ $(this).fadeTo(10,1);
                 Communications<br>
                 Augmented reality helmets are already being used by mechanics and Box personnel at MotoGP. It is reasonable to assume that such tools will eventually reach the riders, who will use these technologies in order to be less reliant on other support elements, such as the electronic notices board. At the moment, all messages between the rider and the Box are regulated and controlled by a single central unit, but this needn't be the case forever, and we may soon witness a fully open means of communication. When this becomes a reality, all of the information about the motorcycle's status will be projected inside the helmet instead of on the screen on the control panel.<br><br>
 
-				<img class="inline-content" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116747_Honda_Riding_Assist_e1.jpg" alt="Cuadro de mandos del prototipo Honda Riding Assist-e" itemprop="image" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116747_Honda_Riding_Assist_e1-900x603.jpg"/><br><br>
+                <img class="inline-content" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116747_Honda_Riding_Assist_e1.jpg" alt="Cuadro de mandos del prototipo Honda Riding Assist-e" itemprop="image" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116747_Honda_Riding_Assist_e1-900x603.jpg"/><br><br>
 
-	            Retransmission<br>
+                Retransmission<br>
                 If open communication with the rider is established, why not take advantage of this to improve retransmission? A helmet camera can be used to have a first-person view of the situation that the public can access to through virtual reality devices. Can you imagine anything more thrilling than experiencing a race from the point of view of the riders themselves?<br><br?
                 Circuit drones<br>
                 Though we do not expect motorcycles operated by human beings to disappear from the competition, a category of remote-controlled vehicles may one day be incorporated into the races. Drones are having a growing impact on the development of vehicles, transportation, and logistics, and being able to place a riderless device on the track has a clear advantage: safety considerations can be put aside to focus on a more efficient performance. Ultimately, if a riderless motorcycle crashes, all parts are replaceable, so why shouldn't we push it to the limit? This opens up new possibilities, such as more extravagant tracks with loops and leaps.<br><br>
 
-				<img class="inline-content" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116745_Honda_Riding_Assist_e1.jpg" alt="La moto prototipo Honda Riding Assist-e" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116745_Honda_Riding_Assist_e1-1280x858.jpg 1280w, https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116745_Honda_Riding_Assist_e1-900x603.jpg" /><br><br>
-		    
-	            Autonomous vehicles<br>
+                <img class="inline-content" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116745_Honda_Riding_Assist_e1.jpg" alt="La moto prototipo Honda Riding Assist-e" src="https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116745_Honda_Riding_Assist_e1-1280x858.jpg 1280w, https://s3-eu-west-1.amazonaws.com/boxrepsol-site/uploads/116745_Honda_Riding_Assist_e1-900x603.jpg" /><br><br>
+            
+                Autonomous vehicles<br>
                 We can envision a future where motorcycles are controlled remotely, but it is more difficult to imagine one where motorcycles drive themselves. However, it is only a matter of time before a computer is able to autonomously replicate a human being's performance. Autonomous vehicles are already a reality, even though they haven't become popular yet. We have already been witness to several prototypes that are operating among us, including competition prototypes. When the time comes, will we see these intelligent machines compete next to current riders?<br>`);
         break;
     default:
         $("#article-text-below").html("");
-    }
+    };
 });
+
 
 function fadeArticles() {
     $(".article").fadeTo(10,0.25);
 };
 
+
 function restoreArticles() {
     $(".article").fadeTo(100,1);
 };
+
 
 /* Will be used to get latest 'Article' from Wikipedia api 
 Not working yet */
@@ -167,10 +162,10 @@ function doWiki() {
             }
             catch (err) {
                 document.getElementById("results").textContent = err.message;
-            }
-
+            };
         });
-    };
+};
+
 
 /* Build html table from Tabulator */
 function buildHTMLTable() {
@@ -239,15 +234,12 @@ $("#resultsTable").tabulator({
 });
 
 
-/* alert("load json data to array"); */
-
-
 //load JSON data into the table
 $("#resultsTable").tabulator("setData", "assets/data/jsondata.json");
 };
 
 /* Show and hide the results grid */
- function toggleResults() {
+function toggleResults() {
     var tableVisibility = document.getElementById("dataTable");
         if (tableVisibility.style.display === "block") {
             tableVisibility.style.display = "none";
@@ -256,7 +248,8 @@ $("#resultsTable").tabulator("setData", "assets/data/jsondata.json");
             tableVisibility.style.display = "block";
             document.getElementById("btnDisplayResults").innerText="Hide Race Results";
         }
- };
+};
+
 
  /* Update drop-down menu following user selection 
  Not working correctly */
@@ -265,7 +258,8 @@ $(".dropdown-menu li a").click(function(){
   $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 });
 
- /* $(".dropdown-menu").click(function(){
+
+/* $(".dropdown-menu").click(function(){
     
   var selText = $(this).text();
   $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
@@ -276,6 +270,7 @@ $(".dropdown-menu li a").click(function(){
 function loadJsonFile() {
     readJsonFile("assets/data/jsondata.json", function(text){
     gblData = JSON.parse(text);
+    getChampionshipWins("Nation",10);
     //alert(gblData);
     //callback(JSON.parse(text));
     //console.log(`Should be 71 years: ${data.length}`);
@@ -283,10 +278,10 @@ function loadJsonFile() {
     //console.log(`Should be array 0 - 70: ${getTableHeaders(data)}`);
     //console.log(`Should be array of Col Titles: ${getTableHeaders(data[0])}`);
     //console.log(`Should be the full row data array: ${getAllData(data)}`);
-    getChampionshipWins("Nation",10);
     //return data;
     });
 };
+
 
 function readJsonFile(myFile,callback) {
     var rawFile = new XMLHttpRequest();
@@ -301,13 +296,15 @@ function readJsonFile(myFile,callback) {
 };
 
 
+Chart.defaults.global.defaultFontColor = 'rgb(255,255,255)';
+Chart.defaults.global.responsiveAnimationDuration=900;
+
+
 function getTableHeaders(obj) {
     var tableHeaders = [];
-
     Object.keys(obj).forEach(function(key) {
         tableHeaders.push(key);
     });
-
     return tableHeaders;
 };
 
@@ -334,11 +331,9 @@ function getAllData(obj) {
 
 
 function getChampionshipWins(optType = "Nation", optQty = 10) {
-
-    let obj = gblData;
-    let tableRows = [];
+let obj = gblData;
+let tableRows = [];
         //alert(gblData.length);
-        
         obj.forEach(function(item) { 
             let dataLabels = [];
 
@@ -371,7 +366,8 @@ function getChampionshipWins(optType = "Nation", optQty = 10) {
     for (var k = 0; k < list.length; k++) {
         labels[k] = list[k].name;
         data[k] = list[k].wins;
-    }
+    };
+
     if (optQty>=1) {
     labelsSliced = labels.slice(0,optQty);
     dataSliced = data.slice(0,optQty);
@@ -381,22 +377,51 @@ function getChampionshipWins(optType = "Nation", optQty = 10) {
     };
 
     let chartData = [labelsSliced,dataSliced];
+    let chartColours=shuffle(colours75());
+
+    var options = {
+        responsive: true,
+        scales: {
+            yAxes: [{
+                display: true,
+                ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                }
+            }]
+        },
+        layout: {    
+            padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0,
+                }
+            },
+        title: {
+            display: true,
+            padding: 0,
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        legend: {
+          labels: {
+              boxWidth: 0,
+              fontSize: 14,
+            }
+        },
+    };
+
+
 
     //function buildNationsChart(obj) {
     var ctx = document.getElementById('nationsChart').getContext("2d");
-    //console.log(obj[1]);
-
-    /* if (typeof(this.myChartWins) != "undefined") {
-        console.log("undefined myChartWins");
-            this.myChartWins.destroy();
-        };
-
-    //console.log(myChartWins);
-    if (window.myChartWins) {
-        console.log("undefined myChartWins");
-        myChartWins.destroy();
-      };
-    */ 
 
     myChartWins = new Chart(ctx, {
     // The type of chart we want to create
@@ -407,30 +432,17 @@ function getChampionshipWins(optType = "Nation", optQty = 10) {
             datasets: [{
                 label: "Championship wins",
                 data: chartData[1],
-                backgroundColor: shuffle(colours75()),
-                //borderColor: "rgb(255,255,255)",
+                backgroundColor: chartColours,
             }]
         },
-
-        // Configuration options go here
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
+        options: options
     });
-    
+
     if (chartData[0].length>5) {
         Chart.defaults.global.defaultFontSize = 10;
     } else {
         Chart.defaults.global.defaultFontSize = 12;
     };
-    //window.location.reload(1);
-    //console.log(myChartWins);
 };
 
 
@@ -465,10 +477,6 @@ myChartWins.destroy();
 };
 
 
-
-Chart.defaults.global.defaultFontColor = "rgb(255,255,255)";
-Chart.defaults.global.responsiveAnimationDuration=50;
-
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -490,105 +498,106 @@ function shuffle(array) {
 
 function colours75() {
     let colours = [
-        'rgba(204,75,253,0.3)',
-        'rgba(0,206,82,0.3)',
-        'rgba(0,166,249,0.3)',
-        'rgba(226,1,89,0.3)',
-        'rgba(205,222,62,0.3)',
-        'rgba(0,117,198,0.3)',
-        'rgba(97,172,0,0.3)',
-        'rgba(233,161,255,0.3)',
-        'rgba(197,255,138,0.3)',
-        'rgba(158,108,211,0.3)',
-        'rgba(146,231,66,0.3)',
-        'rgba(255,122,185,0.3)',
-        'rgba(97,156,78,0.3)',
-        'rgba(85,201,191,0.3)',
-        'rgba(247,0,40,0.3)',
-        'rgba(225,88,70,0.3)',
-        'rgba(207,191,63,0.3)',
-        'rgba(209,116,148,0.3)',
-        'rgba(209,140,49,0.3)',
-        'rgba(157,141,211,0.3)',
-        'rgba(122,221,158,0.3)',
-        'rgba(220,77,194,0.3)',
-        'rgba(219,109,112,0.3)',
-        'rgba(190,167,99,0.3)',
-        'rgba(250,115,0.3)',
-        'rgba(204,75,253,0.3)',
-        'rgba(0,206,82,0.3)',
-        'rgba(0,166,249,0.3)',
-        'rgba(226,1,89,0.3)',
-        'rgba(205,222,62,0.3)',
-        'rgba(0,117,198,0.3)',
-        'rgba(97,172,0,0.3)',
-        'rgba(233,161,255,0.3)',
-        'rgba(197,255,138,0.3)',
-        'rgba(158,108,211,0.3)',
-        'rgba(146,231,66,0.3)',
-        'rgba(255,122,185,0.3)',
-        'rgba(97,156,78,0.3)',
-        'rgba(85,201,191,0.3)',
-        'rgba(247,0,40,0.3)',
-        'rgba(225,88,70,0.3)',
-        'rgba(207,191,63,0.3)',
-        'rgba(209,116,148,0.3)',
-        'rgba(209,140,49,0.3)',
-        'rgba(157,141,211,0.3)',
-        'rgba(122,221,158,0.3)',
-        'rgba(220,77,194,0.3)',
-        'rgba(219,109,112,0.3)',
-        'rgba(190,167,99,0.3)',
-        'rgba(250,115,0.3)',
-        'rgba(204,75,253,0.3)',
-        'rgba(0,206,82,0.3)',
-        'rgba(0,166,249,0.3)',
-        'rgba(226,1,89,0.3)',
-        'rgba(205,222,62,0.3)',
-        'rgba(0,117,198,0.3)',
-        'rgba(97,172,0,0.3)',
-        'rgba(233,161,255,0.3)',
-        'rgba(197,255,138,0.3)',
-        'rgba(158,108,211,0.3)',
-        'rgba(146,231,66,0.3)',
-        'rgba(255,122,185,0.3)',
-        'rgba(97,156,78,0.3)',
-        'rgba(85,201,191,0.3)',
-        'rgba(247,0,40,0.3)',
-        'rgba(225,88,70,0.3)',
-        'rgba(207,191,63,0.3)',
-        'rgba(209,116,148,0.3)',
-        'rgba(209,140,49,0.3)',
-        'rgba(157,141,211,0.3)',
-        'rgba(122,221,158,0.3)',
-        'rgba(220,77,194,0.3)',
-        'rgba(219,109,112,0.3)',
-        'rgba(190,167,99,0.3)',
-        'rgba(250,115,0.3)',
-        'rgba(204,75,253,0.3)',
-        'rgba(0,206,82,0.3)',
-        'rgba(0,166,249,0.3)',
-        'rgba(226,1,89,0.3)',
-        'rgba(205,222,62,0.3)',
-        'rgba(0,117,198,0.3)',
-        'rgba(97,172,0,0.3)',
-        'rgba(233,161,255,0.3)',
-        'rgba(197,255,138,0.3)',
-        'rgba(158,108,211,0.3)',
-        'rgba(146,231,66,0.3)',
-        'rgba(255,122,185,0.3)',
-        'rgba(97,156,78,0.3)',
-        'rgba(85,201,191,0.3)',
-        'rgba(247,0,40,0.3)',
-        'rgba(225,88,70,0.3)',
-        'rgba(207,191,63,0.3)',
-        'rgba(209,116,148,0.3)',
-        'rgba(209,140,49,0.3)',
-        'rgba(157,141,211,0.3)',
-        'rgba(122,221,158,0.3)',
-        'rgba(220,77,194,0.3)',
-        'rgba(219,109,112,0.3)',
-        'rgba(190,167,99,0.3)'
+    'rgba(0,250,97,0.9)',
+    'rgba(246,76,253,0.9)',
+    'rgba(1,220,68,0.9)',
+    'rgba(175,92,255,0.9)',
+    'rgba(170,204,0,0.9)',
+    'rgba(134,97,255,0.9)',
+    'rgba(0,167,23,0.9)',
+    'rgba(135,0,172,0.9)',
+    'rgba(236,212,0,0.9)',
+    'rgba(106,0,140,0.9)',
+    'rgba(118,255,156,0.9)',
+    'rgba(255,97,243,0.9)',
+    'rgba(70,157,0,0.9)',
+    'rgba(164,123,255,0.9)',
+    'rgba(255,217,84,0.9)',
+    'rgba(1,225,158,0.9)',
+    'rgba(192,0,143,0.9)',
+    'rgba(1,148,69,0.9)',
+    'rgba(223,0,131,0.9)',
+    'rgba(0,178,129,0.9)',
+    'rgba(234,0,78,0.9)',
+    'rgba(2,233,231,0.9)',
+    'rgba(209,0,12,0.9)',
+    'rgba(139,255,253,0.9)',
+    'rgba(180,3,0,0.9)',
+    'rgba(0,92,210,0.9)',
+    'rgba(255,143,25,0.9)',
+    'rgba(0,121,220,0.9)',
+    'rgba(255,184,59,0.9)',
+    'rgba(0,152,237,0.9)',
+    'rgba(219,78,0,0.9)',
+    'rgba(0,159,215,0.9)',
+    'rgba(255,90,61,0.9)',
+    'rgba(1,187,216,0.9)',
+    'rgba(189,0,86,0.9)',
+    'rgba(174,255,192,0.9)',
+    'rgba(143,0,92,0.9)',
+    'rgba(233,255,173,0.9)',
+    'rgba(255,249,162,0.9)',
+    'rgba(205,159,0,0.9)',
+    'rgba(210,156,255,0.9)',
+    'rgba(100,133,0,0.9)',
+    'rgba(255,115,211,0.9)',
+    'rgba(0,95,13,0.9)',
+    'rgba(235,179,255,0.9)',
+    'rgba(0,58,0,0.9)',
+    'rgba(255,125,173,0.9)',
+    'rgba(1,127,97,0.9)',
+    'rgba(148,0,58,0.9)',
+    'rgba(193,255,213,0.9)',
+    'rgba(94,0,59,0.9)',
+    'rgba(243,255,201,0.9)',
+    'rgba(202,244,255,0.9)',
+    'rgba(135,0,24,0.9)',
+    'rgba(109,191,255,0.9)',
+    'rgba(139,138,0,0.9)',
+    'rgba(0,61,119,0.9)',
+    'rgba(255,135,99,0.9)',
+    'rgba(0,94,148,0.9)',
+    'rgba(156,105,0,0.9)',
+    'rgba(191,193,255,0.9)',
+    'rgba(127,51,0,0.9)',
+    'rgba(1,155,152,0.9)',
+    'rgba(108,25,0,0.9)',
+    'rgba(0,130,161,0.9)',
+    'rgba(88,90,0,0.9)',
+    'rgba(255,152,196,0.9)',
+    'rgba(255,205,236,0.9)',
+    'rgba(189,0,86,0.9)',
+    'rgba(174,255,192,0.9)',
+    'rgba(143,0,92,0.9)',
+    'rgba(233,255,173,0.9)',
+    'rgba(255,249,162,0.9)',
+    'rgba(205,159,0,0.9)',
+    'rgba(210,156,255,0.9)',
+    'rgba(100,133,0,0.9)',
+    'rgba(255,115,211,0.9)',
+    'rgba(0,95,13,0.9)',
+    'rgba(235,179,255,0.9)',
+    'rgba(0,58,0,0.9)',
+    'rgba(255,125,173,0.9)',
+    'rgba(1,127,97,0.9)',
+    'rgba(148,0,58,0.9)',
+    'rgba(193,255,213,0.9)',
+    'rgba(94,0,59,0.9)',
+    'rgba(243,255,201,0.9)',
+    'rgba(202,244,255,0.9)',
+    'rgba(135,0,24,0.9)',
+    'rgba(109,191,255,0.9)',
+    'rgba(139,138,0,0.9)',
+    'rgba(0,61,119,0.9)',
+    'rgba(255,135,99,0.9)',
+    'rgba(0,94,148,0.9)',
+    'rgba(156,105,0,0.9)',
+    'rgba(191,193,255,0.9)',
+    'rgba(127,51,0,0.9)',
+    'rgba(1,155,152,0.9)',
+    'rgba(108,25,0,0.9)',
+    'rgba(0,130,161,0.9)',
+    'rgba(88,90,0,0.9)'
         ]
     return colours
 };

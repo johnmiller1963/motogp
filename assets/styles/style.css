@@ -166,12 +166,13 @@ h2 .card-title {
     background-color:rgba(40, 40, 40,0.6);
 }
 
-.chart-options {
-    color: white;
-    font-size: 1rem;
-    font-weight: 100;
-    line-height: 1; 
+.chartCanvas {
+  position: relative;
+  margin: 0;
+  /* height: 80vh; */
+  width: 100%;   
 }
+
 
 @media (max-width: 991.98px) {
     .carousel .carousel-item {
@@ -186,8 +187,8 @@ h2 .card-title {
 
     .row {
         padding: 0px;
-        margin-left: 1rem!important;
-        margin-right: 1rem!important;
+        margin-left: 0.5rem!important;
+        margin-right: 0.5rem!important;
     }
 
     main {
@@ -214,7 +215,7 @@ h2 .card-title {
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .carousel .carousel-item {
-        height: 28em; 
+        height: 24em; 
     }
 
     main {
@@ -226,7 +227,6 @@ h2 .card-title {
         margin-left: 2.5rem!important;
         margin-right: 2.5rem!important;
     }
-
 
     #resultsTable {
         min-height:450px;
