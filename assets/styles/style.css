@@ -51,7 +51,7 @@ a:hover {
 }
 
 .pagelink {
-    padding-left: 20px;
+    padding-left: 25px;
     font-size: 0.8rem;
 }
 
@@ -71,6 +71,11 @@ h2 {
 
 #article-header {
     text-align: center;
+}
+
+#article-detail {
+    margin-top: 200px;
+    padding-top: 200px;
 }
 
 .article {
@@ -128,7 +133,7 @@ h2 .card-title {
     padding-top: 120px;
 }
 
- .featurette {
+.featurette {
   padding-top: 120px;
   /* overflow: hidden; /* Clear floats */
   overflow:auto;

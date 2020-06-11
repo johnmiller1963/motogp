@@ -30,6 +30,10 @@ $( "#navSearch" ).keypress(function(e) {
     };
 });
 
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+};
 
 function smoothScroll() {
 let anchorlinks = document.querySelectorAll('a[href^="#"]')
@@ -70,8 +74,7 @@ var myElement = document.querySelector('#article-text-below');
     if (opac>0.5 && myElement.innerText.length>0) {
         restoreArticles();
         myElement.innerText="";
-        /* alert("Shouldn't be here!"); */
-        end;
+        return;
     };
 
     fadeArticles();
@@ -79,12 +82,13 @@ var myElement = document.querySelector('#article-text-below');
 
     switch(selection) {
         case "card1":
-            /* $("#article-text-below").html(`test html here...`).effect("explode"); */
             $("#article-text-below").html(`Grand Prix motorcycle racing is the premier class of motorcycle road racing events held on road circuits sanctioned by the <a href="https://en.wikipedia.org/wiki/F%C3%A9d%C3%A9ration_Internationale_de_Motocyclisme" target="_blank">Fédération Internationale de Motocyclisme (FIM)</a>.<br><br>It is the oldest established motorsport world championship.<br>Independent motorcycle racing events have been held since the start of the twentieth century and large national events were often given the title Grand Prix.<br> The foundation of the Fédération Internationale de Motocyclisme as the international governing body for motorcycle sport in 1949 provided the opportunity to coordinate rules and regulations in order that selected events could count towards official World Championships.<br><br> The current top division is known as <a href="https://www.motogp.com/" target="_blank">MotoGP</a> since 2002 when the four-stroke era began. Prior to that, the largest class was 500cc, both of which form a historical continuum as the official World Championship, although all classes have official status. <br><br> Grand Prix motorcycles are purpose-built racing machines that are generally unavailable for purchase by the general public or able to be ridden legally on public roads. This contrasts with the various production-based categories of racing, such as the <a href="https://www.worldsbk.com/" target="_blank">Superbike World Championship</a> and the <a href="https://www.iomtt.com/" target="_blank">Isle of Man TT Races</a> that feature modified versions of road-going motorcycles available to the public.<br><br> The championship is currently divided into four classes: Moto Grand Prix, Moto2, Moto3 and MotoE. The first three classes use four-stroke engines, while the MotoE class (new in 2019) uses electric motors, much like the four-wheeler, single-seater all-electric racing series Formula E. The 2019 MotoGP season comprises 19 Grands Prix, with 12 held in Europe, three in Asia, two in the Americas, and one each in Australia and the Middle East."`);
+            scrollToArticle();
         break;
         case "card2":
             $("#article-text-below").html(`Scroll down the page to see some statistics concerning the full race results across all ` + yearsSince1949() + ` years of Grand Prix motorcycle racing.<br><br> The most successful rider in Grand Prix history is <a href="https://en.wikipedia.org/wiki/Giacomo_Agostini" target="_blank">Giacomo Agostini</a> with 15 titles and 122 race wins.<br> In the top-flight series, Agostini holds the title record with eight, followed by active riders <a href="https://en.wikipedia.org/wiki/Valentino_Rossi" target="_blank">Valentino Rossi</a> with seven and <a href="https://en.wikipedia.org/wiki/Marc_Márquez" target="_blank">Marc Márquez</a> with six. As of 2019, Rossi holds the record for most top-flight race wins with 89.<br><br> Without exception every single racer mentioned on this website is (or was) a dedicated and focused sports person. The majority started riding motorcycles at a very young age, fear is not a word in any racers vocabulary, despite the risks clearly involved.`);
-        break;
+            scrollToArticle();
+            break;
         case "card3":
             $("#article-text-below").html(`(Credits to <a href="https://www.edutopia.org/motorcycle-physics" target="_blank">Owen Edwards : Edutopia</a>)<br>
                             A grand prix racing motorcycle is many things: most impressively, a marvel of engineering that costs hundreds of thousands of dollars to develop and build, and one of the fastest machines on wheels, capable of speeds in excess of 210 miles per hour and able to retain a grip on the road at lean angles of 60 degrees or more.  
@@ -104,6 +108,7 @@ var myElement = document.querySelector('#article-text-below');
                             Credit: Fiat Yamaha Team.<br><br>
                             According to Charles Falco, the University of Arizona's chair of condensed-matter physics and co-curator of the Guggenheim Museum's The Art of the Motorcycle exhibition, the initial physics lesson to be learned watching a racing bike hurtle into a tight turn is Newton's first law of motion: "Every object persists in its state of rest or uniform motion in a straight line unless it is compelled to change that state by forces impressed on it," explains Falco.<br> To a rider, this means that the faster a motorcycle is going, the less it wants to turn. Converting a bike's kinetic energy from straight ahead to turning requires a negotiation with physics in a couple of ways. First, a rider pushes the handlebars slightly away from the direction of the turn. Because the wheels act as gyroscopes, this countersteering leans the bike in the opposite direction (into the turn), which puts the tires at an angle, narrowing what engineers call the contact patch and making the bike easier to turn. At the same time, the rider moves off the bike in the direction of the turn.<br> The lean angle of the motorcycle shifts the center of gravity to the side, causing the bike to turn, while the weight redistribution lets the machine stay slightly more upright. At the point of maximum lean required to get through a turn at the highest possible speed, centrifugal force wants to pull the bike machine off the track, and the rider uses traction, gravity, and momentum to stay in the game.<br><br> To explain why the machine moves at all, Falco invokes Newton's second law of motion: A force applied to an object will cause it to accelerate. "This will happen until the rider runs out of track, or other forces become nonnegligible, such as wind resistance," says Falco.<br> On some tracks, grand prix motorcycles approaching tight turns must slow from more than 200 mph to around 40 mph. Friction on the brakes (primarily the front brakes) makes this possible. "All that excess energy has to be dissipated by the brakes in the form of heat," Falco says, thus bringing up the law of conservation of matter and energy. Some of this heat is transferred to the hydraulic-brake fluid, which can cause brakes to lose stopping power, with potentially disastrous consequences. Engineers use space age ceramic materials to avoid this problem, and riders become skilled at getting on and off the brakes quickly.<br><br>
                             Successful race riding is a lot like paying taxes: You want to push the rules as far as you can without breaking them. There is a very fine line between optimum cornering and crashing, where outward, downward, and forward forces balance precisely. But rules are rules. "Speaking on behalf of physicists everywhere," Falco declares, "nothing that ever happens on a motorcycle breaks the laws of physics. In fact, motorcycles are excellent examples of just how well physics works."</p>`);
+            scrollToArticle();
         break;
         case "card4":
             $("#article-text-below").html(`Copyright <a href="https://www.boxrepsol.com/en/motogp-en/motogp-2-0-future-technologies-applied-to-motogp" target="_blank">BoxRepsol</a> The competition has become a laboratory for innovation and the development of cutting-edge technologies. Every year, we are witness to how new technologies that are applied at the MotoGP end up in the market. But what does the future hold in store for us? What new technologies might we see in use at the MotoGP in a few years' time?
@@ -126,11 +131,30 @@ var myElement = document.querySelector('#article-text-below');
             
                 Autonomous vehicles<br>
                 We can envision a future where motorcycles are controlled remotely, but it is more difficult to imagine one where motorcycles drive themselves. However, it is only a matter of time before a computer is able to autonomously replicate a human being's performance. Autonomous vehicles are already a reality, even though they haven't become popular yet. We have already been witness to several prototypes that are operating among us, including competition prototypes. When the time comes, will we see these intelligent machines compete next to current riders?<br>`);
+            scrollToArticle()
         break;
     default:
         $("#article-text-below").html("");
     };
 });
+
+
+function scrollToArticle() {
+    var element = document.getElementById("article-detail");
+    element.scrollIntoView({behavior: "smooth", block: "start"});
+};
+    
+        
+
+    /* var element = document.getElementById('article-detail');
+    var headerOffset = 15;
+    var elementPosition = element.getBoundingClientRect().top;
+    var offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+         top: offsetPosition,
+         behavior: "smooth"
+    }); */
 
 
 function fadeArticles() {
@@ -598,6 +622,6 @@ function colours75() {
     'rgba(108,25,0,0.9)',
     'rgba(0,130,161,0.9)',
     'rgba(88,90,0,0.9)'
-        ]
+]
     return colours
 };

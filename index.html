@@ -7,8 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="description" content="Statistical analysis of Motorcycle Grand Prix wins">
         <meta name="author" content="John Miller">
-        <link rel="icon" type="image/svg+xml" href="assets/images/motogp.svg">
-        <link rel="alternate icon" href="assets/images/motogp.ico">
+        <link rel="icon" href="assets/images/motogp.ico">
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff8a01">
         <!-- <link rel="icon" href="/assets/images/favicon.png"> -->
 
@@ -36,14 +35,14 @@
 <body>
     <header id="headeraddress">
       <nav class="navbar navbar-custom navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">Moto GP</a>
+        <a class="navbar-brand" href="#home" onclick="topFunction()">Moto GP</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#articles">Articles<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#results">Data</a>
@@ -219,7 +218,7 @@
             
         </div>
     <!--/Carousel Wrapper-->
-    <a id="top"></a>
+    <a id="articles"></a>
     <main role="main">
 
       <!-- Marketing messaging and featurettes
@@ -264,11 +263,13 @@
                 </div>
             </div>
 
+            <a id="article-detail"><br></a>
+
             <p id="article-text-below" class="article-display mx-4"></p>
             
             <a id="results"></a>
 
-            <a class="pagelink" href="#top">return to articles</a>
+            <a class="pagelink" href="#articles">return to articles</a>
 
             <!-- RESULTS SECTION -->
             <hr class="featurette-divider">
@@ -279,7 +280,7 @@
             <div id="resultsTable" class="card"></div>
             <!-- /END DATA TABLE USED TO GENERATE CHARTS -->
 
-            <br><a class="pagelink" href="#top">return to articles</a>
+            <br><a class="pagelink" href="#articles">return to articles</a>
 
             <!-- STATISTICS SECTION -->
             <a id="statistics"></a>
@@ -357,7 +358,7 @@
 
         
         </div><!-- /.container -->
-        <a class="pagelink" href="#top">return to articles</a>
+        <a class="pagelink" href="#articles">return to articles</a>
 
         <!-- FOOTER -->
         <footer class="container">
