@@ -143,21 +143,9 @@ h2 .card-title {
     margin-top: 60px;
 }
 
-.featurette-image {
-  margin-top: −120px; /* Vertically center image with the text */
-}
-
-.featurette-image.pull-left {
-  margin-right: 40px;
-}
-
-.featurette-image.pull-right {
-  margin-left: 40px;
-}
-
 .btn-sm {
-    font-size: 0.8rem;
     min-width: 100px;
+    font-size: 0.8rem;
     /* background-color: orange; */
 }
 
@@ -168,14 +156,16 @@ h2 .card-title {
 
 /* Chart styling */
 #nationsChart {
-    background-color:rgba(40, 40, 40,0.6);
+    
 }
 
 .chartCanvas {
-  position: relative;
-  margin: 0;
-  /* height: 80vh; */
-  width: 100%;   
+    background-color:rgba(40, 40, 40,0.6);
+    width: 100%;   
+    position: relative;
+    margin: 0;
+    /* height: 80vh; */
+   
 }
 
 
@@ -197,7 +187,7 @@ h2 .card-title {
     }
 
     main {
-    padding-top: 1em;
+        padding-top: 1em;
     }
 
     .article-display {
@@ -220,11 +210,11 @@ h2 .card-title {
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .carousel .carousel-item {
-        height: 24em; 
+        height: 22em; 
     }
 
     main {
-    padding-top: 2em;
+        padding-top: 2em;
     }
 
     .row {
@@ -234,7 +224,6 @@ h2 .card-title {
     }
 
     #resultsTable {
-        min-height:450px;
+        min-height:465px;
     }
-
 }

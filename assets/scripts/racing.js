@@ -1,5 +1,6 @@
 var gblData;
 var myChartWins;
+var myChartMakes;
 
 $(document).ready( function () {
     yearsSince1949();
@@ -186,8 +187,8 @@ function doWiki() {
             }
             catch (err) {
                 document.getElementById("results").textContent = err.message;
-            };
-        });
+        };
+    });
 };
 
 
@@ -261,6 +262,7 @@ $("#resultsTable").tabulator({
 //load JSON data into the table
 $("#resultsTable").tabulator("setData", "assets/data/jsondata.json");
 };
+
 
 /* Show and hide the results grid */
 function toggleResults() {
@@ -403,8 +405,20 @@ let tableRows = [];
     let chartData = [labelsSliced,dataSliced];
     let chartColours=shuffle(colours75());
 
+    let winners = labels.length;
+    if (winners >7) {
+        var fntSize = 10;
+    } else {
+        var fntSize = 12;
+    };
+
     var options = {
         responsive: true,
+        title: {
+            display: true,
+            position: 'top',
+            text: 'Championship wins',
+        },
         scales: {
             yAxes: [{
                 display: true,
@@ -422,10 +436,6 @@ let tableRows = [];
                     bottom: 0,
                 }
             },
-        title: {
-            display: true,
-            padding: 0,
-        },
         tooltips: {
             mode: 'index',
             intersect: false,
@@ -437,7 +447,7 @@ let tableRows = [];
         legend: {
           labels: {
               boxWidth: 0,
-              fontSize: 14,
+              fontSize: fntSize,
             }
         },
     };
@@ -454,19 +464,100 @@ let tableRows = [];
         data: {
             labels: chartData[0],
             datasets: [{
-                label: "Championship wins",
+                label: "",
                 data: chartData[1],
                 backgroundColor: chartColours,
             }]
         },
         options: options
     });
+};
 
-    if (chartData[0].length>5) {
-        Chart.defaults.global.defaultFontSize = 10;
-    } else {
-        Chart.defaults.global.defaultFontSize = 12;
+
+function getChampionshipMakes(myClass) {
+let obj = gblData;
+let tableRows = [];
+        //alert(gblData.length);
+        //alert(myClass + " Make")
+        obj.forEach(function(item) { 
+            let dataLabels = [];
+
+            Object.keys(item).forEach(function(key) {
+               
+                // console.log(`Keys used to read the data in: ${key}`);
+                if (key.search(myClass + " Make") >= 0) {
+                    if (item[key] !=="") {
+                        let dataLabels = item[key];
+                        tableRows.push(dataLabels);
+                    };
+                };
+            });
+        });
+    
+    let counts = [];
+    tableRows.forEach(el => counts[el] = 1  + (counts[el] || 0));
+   
+    let labels=Object.keys(counts);
+    let data=Object.values(counts);
+
+    var list = [];
+    for (var j = 0; j < labels.length; j++) 
+        list.push({'name': labels[j], 'wins': data[j]});
+
+    list.sort(function(a, b) {
+        return ((b.wins < a.wins) ? -1 : ((a.wins == b.wins) ? 0 : 1));
+    });
+
+
+    for (var k = 0; k < list.length; k++) {
+        labels[k] = list[k].name;
+        data[k] = list[k].wins;
     };
+
+    let chartData = [labels,data];
+    let chartColours=shuffle(colours75());
+
+    let makes = labels.length;
+    if (makes >10) {
+        fntSize = 10;
+    } else {
+        fntSize = 12;
+    };
+    
+
+    var options = {
+        responsive: true,
+        title: {
+            display: true,
+            position: 'top',
+            text: 'Wins by manufacturer',
+        },
+        legend: {
+            position: 'right',
+          labels: {
+              boxWidth: 0,
+              fontSize: fntSize,
+            }
+        },
+    };
+
+    //function buildNationsChart(obj) {
+    var ctx = document.getElementById('manufacturersChart').getContext("2d");
+
+    myChartMakes = new Chart(ctx, {
+    // The type of chart we want to create
+        type: "pie",
+        // The data for our dataset
+        data: {
+            labels: chartData[0],
+            datasets: [{
+                label: "Manufacturer wins",
+                data: chartData[1],
+                backgroundColor: chartColours,
+            }]
+        },
+        options: options
+    });
 };
 
 
@@ -474,7 +565,11 @@ function btnWins(clicked) {
 let qty = $("#txtWins").val();
 let type = clicked.slice(3, clicked.length);
 
-myChartWins.destroy();
+    try {
+        myChartWins.destroy();
+    } catch {
+        /* do nothing */
+    };
 
     switch(clicked) {
         case "btnNation":
@@ -497,6 +592,34 @@ myChartWins.destroy();
         break;
     default:
         getChampionshipWins("Nation",10);
+    };
+};
+
+
+function btnMakes(clicked) {
+let classes = clicked.slice(3, clicked.length);
+
+    try {
+        myChartMakes.destroy();
+    } catch {
+        /* do nothing */
+    };
+
+    switch(clicked) {
+        case "btnMotoGP":
+            getChampionshipMakes(classes);
+        break;
+        case "btnMoto2":
+            getChampionshipMakes(classes);
+        break;
+        case "btnMoto3":
+            getChampionshipMakes(classes);
+        break;
+        case "btnMotoE":
+            getChampionshipMakes(classes);
+        break;
+    default:
+        getChampionshipMakes("MotoGP");
     };
 };
 
