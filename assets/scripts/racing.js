@@ -1,6 +1,7 @@
 var gblData;
 var myChartWins;
 var myChartMakes;
+var myChartKaizen;
 
 $(document).ready( function () {
     yearsSince1949();
@@ -297,6 +298,8 @@ function loadJsonFile() {
     readJsonFile("assets/data/jsondata.json", function(text){
     gblData = JSON.parse(text);
     getChampionshipWins("Nation",10);
+    getChampionshipMakes("MotoGP");
+    getKaizenWins("");
     //alert(gblData);
     //callback(JSON.parse(text));
     //console.log(`Should be 71 years: ${data.length}`);
@@ -561,6 +564,190 @@ let tableRows = [];
 };
 
 
+function getKaizenWins(optMake = "") {
+const japaneseMakes="honda kawasaki suzuki yamaha";
+const dataLabels = ["1949-59","1960-69","1970-79","1980-89","1990-99","2000-09","2010-19"];
+let obj = gblData;
+let japaneseTotalWins= new Array(dataLabels.length).fill(0);
+let selectedTotalWins=new Array(dataLabels.length).fill(0);
+let rowTotalWins=new Array(dataLabels.length).fill(0);
+
+//console.log(selectedTotalWins[1]);
+
+    //alert(gblData.length);
+    obj.forEach(function(item) { //For each Year
+        //console.log(item);
+
+        let currentYear;
+        let japaneseWins=0;
+        let selectedWins=0;
+        let restOfWorldWins=0;
+
+        Object.keys(item).forEach(function(key) { //For each column in this year
+            if (key == "Year") {
+                currentYear = item[key]
+                //console.log(`Looking in Year ${currentYear}`)
+            }; 
+
+            if (key.search("Make") >= 0) {
+    
+                switch (true) {
+                    case (japaneseMakes.search(item[key].toLowerCase()) >= 0 && item[key].length > 0):
+                        //console.log(`Found Japanses bike: ${item[key]}`)
+                        ++japaneseWins;
+                    break;
+                    case (optMake.toLowerCase().search(item[key].toLowerCase()) >= 0 && item[key].length > 0):
+                        //console.log(`Found Selected bike: ${item[key]}`)
+                        ++selectedWins;
+                    break;
+                    case (item[key].length > 0):
+                        //console.log(`Found RoW bike: ${item[key]}`)
+                        ++restOfWorldWins
+                    };
+                };
+            });
+
+            //console.log(`Year is ${currentYear} - JapaneseWins ${japaneseWins} SelectedMake ${selectedWins} RoWWins ${restOfWorldWins}`);
+            let x = 0
+
+            switch (true) {
+                case (currentYear < 1960):
+                    japaneseTotalWins[0]=japaneseTotalWins[0] + japaneseWins;
+                    selectedTotalWins[0]=selectedTotalWins[0] + selectedWins;
+                    rowTotalWins[0]=rowTotalWins[0] + restOfWorldWins;            
+                break;
+                case (currentYear < 1970):
+                    japaneseTotalWins[1]=japaneseTotalWins[1] + japaneseWins;
+                    selectedTotalWins[1]=selectedTotalWins[1] + selectedWins;
+                    rowTotalWins[1]=rowTotalWins[1] + restOfWorldWins;    
+                    break;
+                case (currentYear < 1980):
+                    japaneseTotalWins[2]=japaneseTotalWins[2] + japaneseWins;
+                    selectedTotalWins[2]=selectedTotalWins[2] + selectedWins;
+                    rowTotalWins[2]=rowTotalWins[2] + restOfWorldWins;                     
+                break;
+                case (currentYear < 1990):
+                    japaneseTotalWins[3]=japaneseTotalWins[3] + japaneseWins;
+                    selectedTotalWins[3]=selectedTotalWins[3] + selectedWins;
+                    rowTotalWins[3]=rowTotalWins[3] + restOfWorldWins;       
+                break;
+                case (currentYear < 2000):
+                    japaneseTotalWins[4]=japaneseTotalWins[4] + japaneseWins;
+                    selectedTotalWins[4]=selectedTotalWins[4] + selectedWins;
+                    rowTotalWins[4]=rowTotalWins[4] + restOfWorldWins;                
+                break;
+                case (currentYear < 2010):
+                    japaneseTotalWins[5]=japaneseTotalWins[5] + japaneseWins;
+                    selectedTotalWins[5]=selectedTotalWins[5] + selectedWins;
+                    rowTotalWins[5]=rowTotalWins[5] + restOfWorldWins;                     
+                break;
+                case (currentYear < 2020):
+                    japaneseTotalWins[6]=japaneseTotalWins[6] + japaneseWins;
+                    selectedTotalWins[6]=selectedTotalWins[6] + selectedWins;
+                    rowTotalWins[6]=rowTotalWins[6] + restOfWorldWins;                    
+                break;
+            };
+    });
+
+    /* console.log(`1950s decade Japanese wins: ${japaneseTotalWins[0]} Selected Wins ${selectedTotalWins[0]} and RoW Wins ${rowTotalWins[0]}`);
+    console.log(`1960s decade Japanese wins: ${japaneseTotalWins[1]} Selected Wins ${selectedTotalWins[1]} and RoW Wins ${rowTotalWins[1]}`);
+    console.log(`1970s decade Japanese wins: ${japaneseTotalWins[2]} Selected Wins ${selectedTotalWins[2]} and RoW Wins ${rowTotalWins[2]}`);
+    console.log(`1980s decade Japanese wins: ${japaneseTotalWins[3]} Selected Wins ${selectedTotalWins[3]} and RoW Wins ${rowTotalWins[3]}`);
+    console.log(`1990s decade Japanese wins: ${japaneseTotalWins[4]} Selected Wins ${selectedTotalWins[4]} and RoW Wins ${rowTotalWins[4]}`);
+    console.log(`2000s decade Japanese wins: ${japaneseTotalWins[5]} Selected Wins ${selectedTotalWins[5]} and RoW Wins ${rowTotalWins[5]}`);
+    console.log(`2010s decade Japanese wins: ${japaneseTotalWins[6]} Selected Wins ${selectedTotalWins[6]} and RoW Wins ${rowTotalWins[6]}`);
+    */
+   
+
+    var options = {
+        responsive: true,
+        title: {
+            display: true,
+            position: 'top',
+            text: 'Zaizen wins',
+        },
+        scales: {
+            yAxes: [{
+                display: true,
+                stacked: true,
+                ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                }
+            }]
+        },
+        layout: {    
+            padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0,
+                }
+            },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        legend: {
+          labels: {
+              fontSize: fntSize,
+            }
+        },
+    };
+
+    let data=[japaneseTotalWins,selectedTotalWins,rowTotalWins];
+
+    /* console.log(data[0]);
+    console.log(data[1]);
+    console.log(data[2]);
+    */
+
+    if (optMake.length>0) {
+        optLabel = "Wins for " + optMake.charAt(0).toUpperCase() + optMake.slice(1);
+        data;
+    } else {
+        optLabel = "None Specified"
+    };
+    
+    var ctx = document.getElementById('kaizenChart').getContext("2d");
+
+    myChartZaizen = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+		data: {
+			labels: dataLabels,
+				datasets: [
+                    {
+                        label: 'Japanese wins',
+                        borderColor: "rgba(150,0,0,0.8)",
+                        backgroundColor: "rgba(150,0,0,0.8)",
+                        data: data[0]
+                    },
+                    {
+                        label: optLabel,
+                        borderColor: "rgba(255,255,255,0.8)",
+                        backgroundColor: "rgba(255,255,255,0.8)",
+                        data: data[1]
+                    },
+                    {
+                        label: 'Other make wins',
+                        borderColor: "rgba(0,0,150,0.8)",
+                        backgroundColor: "rgba(0,0,150,0.8)",
+                        data: data[2]
+                    }, 
+                ], 
+        },
+        
+        options: options
+
+    });
+};
+
+
 function btnWins(clicked) {
 let qty = $("#txtWins").val();
 let type = clicked.slice(3, clicked.length);
@@ -621,6 +808,22 @@ let classes = clicked.slice(3, clicked.length);
     default:
         getChampionshipMakes("MotoGP");
     };
+};
+
+
+function btnKaizen(clicked) {
+let make = $("#txtMake").val();
+console.log(make);
+//let type = clicked.slice(3, clicked.length);
+
+    try {
+        myChartZaizen.destroy();
+    } catch {
+        /* do nothing */
+    };
+
+    getKaizenWins(make);
+
 };
 
 

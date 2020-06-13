@@ -154,9 +154,18 @@ h2 .card-title {
     font-size: 0.8rem;
 }
 
-/* Chart styling */
-#nationsChart {
-    
+#txtMake {
+    max-width: 90px;
+    font-size: 0.8rem;
+}
+
+footer {
+    padding-right: 15px;
+    margin-top: 20px;
+    color: rgb(220, 220, 220);
+    font-size: 0.8rem;
+    font-weight: 100;
+    line-height: 1.3;
 }
 
 .chartCanvas {
