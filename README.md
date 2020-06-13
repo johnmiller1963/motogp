@@ -5,6 +5,9 @@ http://tabulator.info/
 
 https://medialab.github.io/iwanthue/
 
+https://bootstrapious.com/p/how-to-build-a-working-bootstrap-contact-form
+
+
 Get Wiki API working for introduction (always up to date)
 
 Add sortable column headings in html table

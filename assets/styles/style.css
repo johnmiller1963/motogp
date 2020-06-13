@@ -18,7 +18,7 @@ body {
     rgb(6, 6, 6) 1000px);
 }
 
-/* change the background color */
+/* change the Navbar background color */
 .navbar-custom {
     background-color: rgb(20, 20, 20);
 }
@@ -48,6 +48,15 @@ a {
 
 a:hover {
     color: rgb(260, 205, 60);
+}
+
+p {
+    font-weight: "300";
+}
+
+label {
+    color: rgb(280,180,0);
+    
 }
 
 .pagelink {
