@@ -94,8 +94,6 @@ $('#contact-form').on('submit', function(event) {
         alert("Those emails don't match, please check and re-send!");
         return;
     };
-    
-    alert(this.message.value);
 
     var formData = new FormData(this);
 
