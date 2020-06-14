@@ -9,8 +9,6 @@ $(document).ready( function () {
     buildHTMLTable();
     smoothScroll();
     loadJsonFile();
-    //alert("hello");
-    //getChampionshipWins();
 });
 
 
@@ -24,17 +22,32 @@ function yearsSince1949() {
 };
 
 
-/* Will be used to search the page eg riders, makes etc */
-$( "#navSearch" ).keypress(function(e) {
-    if (e.key == 'Enter') {
-        var str = $("#navSearch").val();
-        alert("Now searching the page for '" + str + "'!");
+
+$("#navSearch").keypress(function(e) {if (e.key == 'Enter') {
+var myElements=["p","h2","label"];
+var pattern = $(this).val().toLowerCase();
+ 
+    for (var x = 0; x < myElements.length; x++) {
+        var searchItems = document.getElementsByTagName(myElements[x]);
+            for (var i = 0; i < searchItems.length; i++) {
+            var index = searchItems[i].innerText.toLowerCase().indexOf(pattern);
+                event.preventDefault();   
+                    if (index != -1) {
+                        //console.log(`Found ${pattern} in 'h2' with text '${searchItems[i].innerText.toLowerCase()}' ordinal ${i} of the array`)
+                        var element = document.getElementsByTagName(myElements[x])[i];
+                        element.scrollIntoView({behavior: 'smooth', block: 'center'});
+                        break;
+                    };
+            };
+        };
     };
 });
 
+
+
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 };
 
 function smoothScroll() {
@@ -65,21 +78,6 @@ function startCarousel() {
 		].join(''));
 	});
 };
-
-
-/* function send_email_enquiry() {
-var templateParams = {
-    name: 'My website test',
-    notes: 'Check this out!'
-    };
-    
-    emailjs.sendForm('default_service', 'website_enquiry', '#contact-form')
-        .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        }, function(error) {
-        console.log('FAILED...', error);
-        });
-}; */
 
 
 $('#contact-form').on('submit', function(event) {
