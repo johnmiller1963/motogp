@@ -363,32 +363,23 @@
 
         <!-- SUBMISSION FORM -->
         <hr class="featurette-divider">
-
             <div class="row mx-auto">
-
                 <div class="col-xl-8 py-5">
-
-                    <h2>Use this contact form to suggest new articles, additional statistics or suggest an image for the carousel</h2>
-
-                    <form id="contact-form" role="form"> <!-- method="post" action="contact.php" -->
-
+                    <h2>Please contact us to suggest new articles, additional statistics or suggest an image for the carousel</h2>
+                    <form id="contact-form" name="contact-form" method="post" role="form">
                         <div class="messages"></div>
-
                         <div class="controls">
-
                             <div class="row pt-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_name">Firstname</label>
-                                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
-                                        <div class="help-block with-errors"></div>
+                                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname" required="required">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_lastname">Surname</label>
-                                        <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
-                                        <div class="help-block with-errors"></div>
+                                        <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your surname" required="required">
                                     </div>
                                 </div>
                             </div>
@@ -396,15 +387,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_email">Email</label>
-                                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-                                        <div class="help-block with-errors"></div>
+                                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email" required="required">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_email_confirm">Confirm Email</label>
-                                        <input id="form_email_confirm" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-                                        <div class="help-block with-errors"></div>
+                                        <input id="form_email_confirm" type="email" name="email_confirm" class="form-control" placeholder="Please confirm your email" required="required">
                                     </div>
                                 </div>                                
                             </div>
@@ -412,32 +401,34 @@
                                 <div class="col-md-12 mx-auto">
                                     <div class="form-group mx-auto">
                                         <label for="form_message">Comments and suggestions here</label>
-                                        <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
-                                        <div class="help-block with-errors"></div>
+                                        <textarea id="form_message" name="message" class="form-control" placeholder="Please provide details" rows="6" required="required"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <input type="submit" class="btn btn-secondary btn-send" value="Send message">
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row pt-2">
                                 <div class="col-md-12">
                                     <p class="text-muted">
-                                        <strong>*</strong> These fields are required
+                                        All fields are required
                                     </p>
                                 </div>
                             </div>
                         </div>
-
                     </form>
-
                 </div>
-
             </div>
 
         </div> <!-- /.container -->
 
         <!-- END SUBMISSION FORM -->
+
+        <form action="?" method="POST">
+            <div class="g-recaptcha" data-sitekey="6LdDgKQZAAAAAIUeliY6u0NYGuqNcBk0KOchBstk"></div>
+            <br/>
+            <!-- <input type="submit" value="Submit"> -->
+        </form>
 
         <hr class="featurette-divider">
 
@@ -460,7 +451,12 @@
     <!-- <script src="https://cdnjs.com/libraries/Chart.js"></script>
     <script src="https://cdnjs.com/libraries/1000hz-bootstrap-validator"></script> -->
     <script src="assets/scripts/racing.js"></script>
-    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js" type="text/javascript"></script>
+    <script type="text/javascript"> (function(){
+        emailjs.init("user_8X3EQg7gIqpcEa9pn8u3o");
+    })();</script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg> -->
 
 </body>
 </html>

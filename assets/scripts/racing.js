@@ -67,6 +67,64 @@ function startCarousel() {
 };
 
 
+/* function send_email_enquiry() {
+var templateParams = {
+    name: 'My website test',
+    notes: 'Check this out!'
+    };
+    
+    emailjs.sendForm('default_service', 'website_enquiry', '#contact-form')
+        .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+        console.log('FAILED...', error);
+        });
+}; */
+
+
+$('#contact-form').on('submit', function(event) {
+    event.preventDefault(); // prevent reload
+
+    const e1 = this.form_email.value;
+    const e2 = this.form_email_confirm.value;
+    const isMatch = e1 === e2;
+
+    if ( !isMatch ){
+        event.preventDefault();
+        alert("Those emails don't match, please check and re-send!");
+        return;
+    };
+    
+    alert(this.message.value);
+
+    var formData = new FormData(this);
+
+    formData.append('service_id', 'ionos');
+    formData.append('template_id', 'website_enquiry');
+    formData.append('user_id', 'user_8X3EQg7gIqpcEa9pn8u3o');
+ 
+    $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
+        type: 'POST',
+        data: formData,
+        contentType: false, // auto-detection
+        processData: false // no need to parse formData to string
+    }).done(function() {
+        alert('Thank you for your email, we will be in touch soon!');
+    }).fail(function(error) {
+        alert('Oops... ' + JSON.stringify(error));
+    });
+
+    document.getElementById('contact-form').reset();
+});
+
+/* emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', '#myForm')
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+}); */
+
+
 $(".article").click(function(){
 var selection = this.id;
 var em = document.getElementById(this.id);
