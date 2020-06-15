@@ -7,6 +7,8 @@ https://medialab.github.io/iwanthue/
 
 https://bootstrapious.com/p/how-to-build-a-working-bootstrap-contact-form
 
+Restrict Google API keys to private use only
+
 
 Get Wiki API working for introduction (always up to date)
 

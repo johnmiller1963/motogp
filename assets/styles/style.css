@@ -18,6 +18,12 @@ body {
     rgb(6, 6, 6) 1000px);
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 /* change the Navbar background color */
 .navbar-custom {
     background-color: rgb(20, 20, 20);
@@ -191,7 +197,10 @@ footer {
     position: relative;
     margin: 0;
     /* height: 80vh; */
-   
+}
+
+#map {
+    height: 100%;
 }
 
 
