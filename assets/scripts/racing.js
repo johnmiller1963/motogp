@@ -2,7 +2,7 @@ var gblData;
 var myChartWins;
 var myChartMakes;
 var myChartKaizen;
-var map;
+
 
 $(document).ready( function () {
     yearsSince1949();
@@ -888,15 +888,13 @@ console.log(make);
 };
 
 
-
-function initMap() {
 var map;
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8
-    });
-};
-
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
+}
 
 
 function shuffle(array) {
