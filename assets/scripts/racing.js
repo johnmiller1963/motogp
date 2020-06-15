@@ -44,11 +44,16 @@ var pattern = $(this).val().toLowerCase();
 });
 
 
-
 function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+//var target=document.getElementById("motoGpCarousel");
+var target=document.getElementById("headeraddress");
+
+target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+    });
 };
+
 
 function smoothScroll() {
 let anchorlinks = document.querySelectorAll('a[href^="#"]')

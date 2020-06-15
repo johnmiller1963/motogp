@@ -36,7 +36,7 @@
 <body>
     <header id="headeraddress">
       <nav class="navbar navbar-custom navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand" href="#home" onclick="topFunction()">Moto GP</a>
+        <a class="navbar-brand" href="#headeraddress" onclick="topFunction()">Moto GP</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -64,29 +64,29 @@
     </header>
 
 <!--Carousel Wrapper--> 
-    <div class="carousel slide" id="demo-carousel" data-ride="carousel">
+    <div class="carousel slide" id="motoGpCarousel" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li class="active" data-target="#demo-carousel" data-slide-to="1"></li>
-            <li data-target="#demo-carousel" data-slide-to="2"></li>
-            <li data-target="#demo-carousel" data-slide-to="3"></li>
-            <li data-target="#demo-carousel" data-slide-to="4"></li>
-            <li data-target="#demo-carousel" data-slide-to="5"></li>
-            <li data-target="#demo-carousel" data-slide-to="6"></li>
-            <li data-target="#demo-carousel" data-slide-to="7"></li>
-            <li data-target="#demo-carousel" data-slide-to="8"></li>
-            <li data-target="#demo-carousel" data-slide-to="9"></li>
-            <li data-target="#demo-carousel" data-slide-to="10"></li>
-            <li data-target="#demo-carousel" data-slide-to="11"></li>
-            <li data-target="#demo-carousel" data-slide-to="12"></li>
-            <li data-target="#demo-carousel" data-slide-to="13"></li>
-            <li data-target="#demo-carousel" data-slide-to="14"></li>
-            <li data-target="#demo-carousel" data-slide-to="15"></li>
-            <li data-target="#demo-carousel" data-slide-to="16"></li>
-            <li data-target="#demo-carousel" data-slide-to="17"></li>
-            <li data-target="#demo-carousel" data-slide-to="18"></li>
-            <li data-target="#demo-carousel" data-slide-to="19"></li>
-            <li data-target="#demo-carousel" data-slide-to="20"></li>
-            <li data-target="#demo-carousel" data-slide-to="21"></li>
+            <li class="active" data-target="#motoGpCarousel" data-slide-to="1"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="2"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="3"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="4"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="5"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="6"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="7"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="8"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="9"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="10"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="11"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="12"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="13"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="14"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="15"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="16"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="17"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="18"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="19"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="20"></li>
+            <li data-target="#motoGpCarousel" data-slide-to="21"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active" data-src="assets/images/car1image.jpg">
@@ -215,7 +215,7 @@
                     <p></p>
                 </div>
             </div>
-        </div><a class="left carousel-control" href="#demo-carousel" role="button" data-slide="prev"><span class="icon-prev" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#demo-carousel" role="button" data-slide="next"><span class="icon-next" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+        </div><a class="left carousel-control" href="#motoGpCarousel" role="button" data-slide="prev"><span class="icon-prev" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#motoGpCarousel" role="button" data-slide="next"><span class="icon-next" aria-hidden="true"></span><span class="sr-only">Next</span></a>
     </div>
 <!--/Carousel Wrapper-->
     <a id="articles"></a>
@@ -345,7 +345,7 @@
             <div class="row featurette">
                 <div class="col-md-4 order-md-2">
                     <h2 class="chart-title">Kaizen in action <br><span class="text-muted">Ratio of Japanese to rest of the world winners</span></h2>
-                    <p class="article-display">All historcal records are grouped by decade and total championship wins by Japanese and rest of the world manufacturers are displayed in a stacked barchart, enter any specific manufacturer to see their contribution to the championships</p>
+                    <p class="article-display">All historcal records are grouped by decade and total championship wins by Japanese and rest of the world manufacturers are displayed in a stacked barchart, enter any specific manufacturer to see their contribution to the championships (idea, search for MV Agusta or Kalex...)</p>
                         <div class="inline">
                             <p class="article-display">Enter a make: 
                                 <input type="text" class="mt-1" placeholder="None" id="txtMake" onchange="btnKaizen(this.id)">
@@ -436,6 +436,7 @@
 
         <!-- FOOTER -->
         <footer>
+            <a class="ml-3" href="#headeraddress" onclick="topFunction()">Return to top</a>
             <p class="float-right footer">Compiled 2020 by John Miller</a></p>
         </footer>
     </main>

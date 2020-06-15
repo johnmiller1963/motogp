@@ -64,11 +64,15 @@ label {
     font-size: 0.8rem;
 }
 
+#headeraddress {
+    scroll-margin-top: 10rem;
+}
+
 .carousel .carousel-item > *:first-child {
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: inherit;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: inherit;
 }
 
 h2 {
@@ -76,6 +80,10 @@ h2 {
     margin-top: 10px;
     color: rgb(220, 220, 220);
     font-size: 1.2rem;
+}
+
+#articles {
+    scroll-margin-top: 3rem;
 }
 
 #article-header {
@@ -223,6 +231,10 @@ footer {
         font-size: 0.8rem;
     }
 
+}
+
+#contact-us {
+    scroll-margin-top: 3rem;
 }
 
 /* Large devices (desktops, 992px and up) */
