@@ -2,10 +2,12 @@ var gblData;
 var myChartWins;
 var myChartMakes;
 var myChartKaizen;
+var map;
+var infoWindow;
 
 
 $(document).ready( function () {
-    yearsSince1949();
+    //yearsSince1949();
     startCarousel();
     buildHTMLTable();
     smoothScroll();
@@ -439,9 +441,10 @@ let tableRows = [];
             });
         });
     
-    let counts = [];
+    let counts = {};
     tableRows.forEach(el => counts[el] = 1  + (counts[el] || 0));
    
+    
     let labels=Object.keys(counts);
     let data=Object.values(counts);
 
@@ -888,14 +891,69 @@ console.log(make);
 };
 
 
-var map;
+function zoomTo(level) {
+    google.maps.event.addListener(map, 'zoom_changed', function () {
+        zoomChangeBoundsListener = google.maps.event.addListener(map, 'bounds_changed', function (event) {
+            if (this.getZoom() > level && this.initialZoom == true) {
+                this.setZoom(level);
+                this.initialZoom = false;
+            }
+            google.maps.event.removeListener(zoomChangeBoundsListener);
+        });
+    });
+};
+
+
+/* var infoWindow;
+center: { lat: 32, lng: 0 },
+zoom: 2,
+gestureHandling: 'auto' */
+
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8
-  });
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 32, lng: 0 },
+        zoom: 2
+});
+
+infoWindow = new google.maps.InfoWindow;
+
+// Try HTML5 geolocation.
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+    };
+
+    infoWindow.setPosition(pos);
+    infoWindow.setContent('Location found.');
+    infoWindow.open(map);
+    map.setCenter(pos);
+    }, function() {
+    handleLocationError(true, infoWindow, map.getCenter());
+    });
+} else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+}
 }
 
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+infoWindow.setPosition(pos);
+infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+infoWindow.open(map);
+}
+
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+};
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
