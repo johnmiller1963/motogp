@@ -26,11 +26,16 @@
         <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto"> -->
         <!-- Tabulator, dynamic html table -->
         <!-- Google Maps API scripts -->
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-        <script
+        <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
+        <!-- <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg8-PEi7A38MoQ68PJJ3WsWqAsxHk4Kc8&callback=initMap&libraries=&v=weekly"
-            defer
-        ></script>
+        ></script> -->
+        <!-- <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg8-PEi7A38MoQ68PJJ3WsWqAsxHk4Kc8&callback=initMap">
+        </script> -->
+        <!-- Replace following script src -->
+        <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg8-PEi7A38MoQ68PJJ3WsWqAsxHk4Kc8&callback=initMap"></script>
         <!-- Custom styles for this page -->
         <link rel="stylesheet" href="assets/styles/style.css">
         <!-- Base data file in JSON for all tables and charts --> 
@@ -373,6 +378,7 @@
                 <div class="col-md-4">
                     <h2 class="chart-title">Race Tracks <br><span class="text-muted">Location of all the Grand Prix race curcuits used thoughout the history of the competition</span></h2>
                     <p class="article-display">The graphic shows the location of all race tracks over time, the smaller subset with orange pointers are those curcuits penciled in for the 2020 season<br>(Note map is still Work in Progress)</p>
+                        <!-- <button type="button" class="btn btn-sm btn-secondary m-1"  id="btnMyLocation">Show my location</button> -->
                         <div class="inline">
                             <p class="article-display">Specify a year: 
                                 <input type="text" class="mt-1 mb-3" placeholder="All" id="txtTracks" onchange="btnTracks(this.id)">

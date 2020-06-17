@@ -204,9 +204,12 @@ footer {
 }
 
 #map {
+    height: 40vw;
     width: 100%;
-    height: 100%;
-    
+}
+
+#map img {
+    max-width : none;
 }
 
 #racetracks {
@@ -277,5 +280,4 @@ footer {
     #resultsTable {
         min-height:465px;
     }
-
 }
