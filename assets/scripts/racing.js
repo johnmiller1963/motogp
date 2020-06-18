@@ -874,40 +874,26 @@ let classes = clicked.slice(3, clicked.length);
 };
 
 
-function btnKaizen(clicked) {
-let make = $("#txtMake").val();
-console.log(make);
-//let type = clicked.slice(3, clicked.length);
+$(function () {
+var myMake;
+    $("#dropdown a").click(function () {
+        $("#btnSelectMake .selection").text($(this).text());
+        myMake = $(this).text().toLowerCase();
+        btnKaizen(myMake);
+    });
+});
 
+
+function btnKaizen(clicked) {
     try {
         myChartZaizen.destroy();
     } catch {
         /* do nothing */
     };
 
-    getKaizenWins(make);
+    getKaizenWins(clicked);
 
 };
-
-
-/* function zoomTo(level) {
-    google.maps.event.addListener(map, 'zoom_changed', function () {
-        zoomChangeBoundsListener = google.maps.event.addListener(map, 'bounds_changed', function (event) {
-            if (this.getZoom() > level && this.initialZoom == true) {
-                this.setZoom(level);
-                this.initialZoom = false;
-            }
-            google.maps.event.removeListener(zoomChangeBoundsListener);
-        });
-    });
-};
-*/
-
-
-/* var infoWindow;
-center: { lat: 32, lng: 0 },
-zoom: 2,
-gestureHandling: 'auto' */
 
 
 function initMap() {
@@ -942,6 +928,14 @@ var pinColor;
     return pinImage;
 };
 
+function setPinShadow() {
+var pinShadow = new google.maps.MarkerImage("https://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+        new google.maps.Size(40, 37),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(12, 35));
+    return pinShadow;
+};
+
 function setMarkers(map) {
 //var pinColor;
   // Adds markers to the map.
@@ -953,11 +947,7 @@ function setMarkers(map) {
         new google.maps.Point(0,0),
         new google.maps.Point(10, 34));
     */
-    var pinShadow = new google.maps.MarkerImage("https://chart.apis.google.com/chart?chst=d_map_pin_shadow",
-        new google.maps.Size(40, 37),
-        new google.maps.Point(0, 0),
-        new google.maps.Point(12, 35));
-
+    
 
   // Marker sizes are expressed as a Size of X,Y where the origin of the image
   // (0,0) is located in the top left of the image.
@@ -989,7 +979,7 @@ function setMarkers(map) {
         map: map,
         //icon: pinImage,
         icon: setPinImage(track[3].slice(-4)),
-        shadow: pinShadow,
+        shadow: setPinShadow(),
         title: `${track[0]}\nUsage: ${track[3]}`,
         //icon: image,
         //shape: shape,
@@ -1034,7 +1024,7 @@ var tracks = [
 ["Eastern Creek Raceway",-33.80631710000001,150.8707252,"1991–1996"],
 ["Fuji Speedway",35.368274,138.9382515,"1966–1967"],
 ["Hedemora Circuit",60.29854099999999,16.0165001,"1958"],
-["!Hockenheimring",49.3298956,8.5709249,"1957, 1959, 1961, 1963, 1966–1967, 1969, 1971, 1973, 1975, 1977, 1979, 1981–1983, 1985-1987, 1989, 1991–1994"],
+["Hockenheimring",49.3298956,8.5709249,"1957, 1959, 1961, 1963, 1966–1967, 1969, 1971, 1973, 1975, 1977, 1979, 1981–1983, 1985-1987, 1989, 1991–1994"],
 ["Hungaroring",47.5817111,19.2506106,"1990, 1992"],
 ["Imatra Circuit",61.1695977,28.7645463,"1964–1982"],
 ["Indianapolis Motor Speedway",39.7953542,-86.2353006,"2008–2015"],

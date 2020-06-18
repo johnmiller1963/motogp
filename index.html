@@ -358,14 +358,23 @@
             <div class="row featurette">
                 <div class="col-md-4 order-md-2">
                     <h2 class="chart-title">Kaizen in action <br><span class="text-muted">Ratio of Japanese to rest of the world winners</span></h2>
-                    <p class="article-display">All historcal records are grouped by decade and total championship wins by Japanese and rest of the world manufacturers are displayed in a stacked barchart, enter any specific manufacturer to see their contribution to the championships (idea, search for MV Agusta or Kalex...)</p>
+                    <p class="article-display">All historcal records are grouped by decade and total championship wins by Japanese (4 manufacturers) and rest of the world (30 manufacturers) are displayed in a stacked barchart, enter any specific manufacturer to see their contribution to the championships (idea, select MV Agusta or Kalex...)</p>
                         <div class="inline">
-                            <p class="article-display">Enter a make: 
-                                <input type="text" class="mt-1" placeholder="None" id="txtMake" onchange="btnKaizen(this.id)">
+                            <p class="article-display">Select a make from the dropdown list
+                                <div class="input-group" role="group" >
+                                    <div class="input-group-btn" role="group">
+                                        <button type="button" id="btnSelectMake" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"> <span class="selection">Select make</span></button>
+                                        <div class="dropdown-menu" id="dropdown">
+                                            <li><a class="dropdown-item" data-value="mv agusta">MV Agusta</a></li>
+                                            <li><a class="dropdown-item" data-value="kalex">Kalex</a></li>
+                                            <li><a class="dropdown-item" data-value="norton">Norton</a></li>
+                                        </div>
+                                    </div>
+                                </div>
                             </p> 
                         </div>
                 </div>
-                <div class="col-md-8 mt-3 mb-3 chartCanvas">
+                <div class="col-md-8 mt-1 mb-3 chartCanvas">
                     <canvas id="kaizenChart"  width="600" height="400"></canvas>
                     <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17222124469%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17222124469%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 500px; height: 500px;"> -->
                 </div>
