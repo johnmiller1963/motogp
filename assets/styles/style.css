@@ -218,9 +218,13 @@ footer {
 
 #btnSelectMake {
     width: 120px;
+    
 }
 
-
+li .Option:hover {
+    cursor: pointer;
+    color: rgb(280,180,0);
+}
 
 .dropdown-menu{
     max-height:200px;
