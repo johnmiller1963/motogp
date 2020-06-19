@@ -216,6 +216,23 @@ footer {
     scroll-margin-top: 2rem;
 }
 
+#btnSelectMake {
+    width: 120px;
+}
+
+
+
+.dropdown-menu{
+    max-height:200px;
+    overflow-y:auto;
+}
+
+#dropdownMakes li {
+    padding-left: 8px;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
 #contact-us {
     scroll-margin-top: 3rem;
 }

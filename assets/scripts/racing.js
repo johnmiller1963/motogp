@@ -652,7 +652,47 @@ let rowTotalWins=new Array(dataLabels.length).fill(0);
                 //console.log(`Looking in Year ${currentYear}`)
             }; 
 
-            if (key.search("Make") >= 0) {
+            if (key.search("Make") >= 0) { //Got a makes column, itemise the makes
+                if (item[key].length>0) {   
+                    console.log(item[key]);
+                };
+                //let myDropdown = new Array().fill('');
+                /*if (item[key].length>0) { // append new make to dropdown list
+                    
+                    $('#dropdownMakes Option').each(function(){
+                        console.log($('#dropdownMakes').text());
+
+                        myDropdown.push(this.text);
+                    });
+                    //console.log(`Testing for: ${item[key].toLowerCase()} : ${existsInArray(myDropdown, item[key].toLowerCase())}`);   // false
+                    console.log(myDropdown);
+                    var itemToTest=item[key].toLowerCase();
+                    var n = myDropdown.includes(itemToTest);
+                    //console.log(`Testing for: ${item[key].toLowerCase()} : Found at position ${n}`);   // false
+
+                    if (n==false) {
+                        //$('#mySelect')
+                        //    .append($("<option></option>")
+                        //    .attr("value", key)
+                        //    .text(value)); 
+
+                        var mySelect = $('#dropdownMakes')
+                            //<li><a class="Option" data-value="mv agusta">MV Agusta</a></li>
+
+                            //$("<option value="4">'Java Script'</option>").appendTo($('#dropdownMakes'));
+
+                            //mySelect.append(`<li>${item[key]}</li>`);
+
+                            //$('#dropdownMakes li a').append( new Option(item[key]) );
+                            .append($(`<li>${item[key]}</li>`));
+                            //.append($('<option></option>')
+                            //.value(item[key].toLowerCase())
+                            //.html(item[key].toLowerCase())
+                            //.text(item[key].toLowerCase()));
+                            //.attr("data-value", item[key].toLowerCase())
+                            //.text(item[key])); 
+                    };
+                }; */
     
                 switch (true) {
                     case (japaneseMakes.search(item[key].toLowerCase()) >= 0 && item[key].length > 0):
@@ -876,15 +916,19 @@ let classes = clicked.slice(3, clicked.length);
 
 $(function () {
 var myMake;
-    $("#dropdown a").click(function () {
+    $("#dropdownMakes li").click(function () {
+        //console.log(this.textContent);
+        //console.log($('#btnSelectMake').val());
         $("#btnSelectMake .selection").text($(this).text());
         myMake = $(this).text().toLowerCase();
+        //console.log(myMake);
         btnKaizen(myMake);
     });
 });
 
 
 function btnKaizen(clicked) {
+    //alert(clicked);
     try {
         myChartZaizen.destroy();
     } catch {
