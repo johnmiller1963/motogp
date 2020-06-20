@@ -79,8 +79,24 @@ let anchorlinks = document.querySelectorAll('a[href^="#"]')
 };
 
 
-//Used to feed following images into the slider/carousel
+//Carousel random feed for first image and control image flow
 function startCarousel() {
+let $item = $('.carousel-item');
+let $numberofSlides = $('.carousel-item').length;
+let $currentSlide = Math.floor((Math.random() * $numberofSlides));
+
+    $('.carousel-indicators li').each(function(){
+    var $slideValue = $(this).attr('data-slide-to');
+
+        if($currentSlide == $slideValue) {
+            $(this).addClass('active');
+            $item.eq($slideValue).addClass('active');
+        } else {
+            $(this).removeClass('active');
+            $item.eq($slideValue).removeClass('active');
+        }
+    });
+
     'use strict';
 	$('.carousel .carousel-item[data-src]').each(function() {
 		let $this = $(this);

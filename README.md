@@ -24,7 +24,13 @@ Build dropdown choices into chart arrays & update chartjs
 
 Add email functionality to allow users to request features
 
+HTML Validator 51 errors found!
+reCaptcha caused errors by using default format, still working so ignored
+dropdown for makes chart fails validation, all testing proved OK
+CSS 1 error
 
+https://validator.w3.org/nu/
+HTML & CSS checked all clear no errors
 
 
 
