@@ -20,7 +20,7 @@ Created as a milestone project within my [Code Institute - Full stack web develo
 
 The sport of Grand Prix motorcycle racing to fast paced and dynamic.  I want the site to reflect the action delivered througout each race, this is achieved through the use of action shots from various race classes over the 71 years that the championship has been running.  Any fan of the sport will recognise many of the individuals in the sliding carousel.  
 
-Wireframes were produced in Balsamiq to display the desired look on [desktop](readme/wf-desktop.pdf) and [mobile](readme/wf-mobile.df), the finished site is represented in the image above across mutiple targetted devices.
+Wireframes were produced in Balsamiq to display the desired look on [desktop](readme/wf-desktop.pdf) and [mobile](readme/wf-mobile.pdf), the finished site is represented in the image above across mutiple targetted devices.
 
 ## Features
 
