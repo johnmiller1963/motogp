@@ -72,6 +72,10 @@ h2 {
 
 
 /* Fine tune scroll to section to account for Navbar */
+#article-detail {
+    scroll-margin-top: 16rem;
+}
+
 #headeraddress {
     scroll-margin-top: 10rem;
 }
