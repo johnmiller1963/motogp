@@ -51,31 +51,31 @@ let i = 0;
                     let element = document.getElementsByTagName(myElements[x])[i];
                     element.scrollIntoView({behavior: 'smooth', block: 'center'});
                     break;
-                };
-            };
-        };
-    };
+                }
+            }
+        }
+    }
 });
 
 
 //Capture all anchor elements 'click' events, smooth scroll to target
 function smoothScroll() {
-let anchorlinks = document.querySelectorAll('a[href^="#"]')
+let anchorlinks = document.querySelectorAll('a[href^="#"]');
  
     for (let item of anchorlinks) { 
         item.addEventListener('click', (e)=> {
-            let hashval = item.getAttribute('href')
-            let target = document.querySelector(hashval)
+            let hashval = item.getAttribute('href');
+            let target = document.querySelector(hashval);
             
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
 
-            history.pushState(null, null, hashval)
-            e.preventDefault()
+            history.pushState(null, null, hashval);
+            e.preventDefault();
         });
-    };
+    }
 };
 
 
@@ -97,13 +97,13 @@ let $currentSlide = Math.floor((Math.random() * $numberofSlides));
         }
     });
 
-    'use strict';
+    //'use strict';
 	$('.carousel .carousel-item[data-src]').each(function() {
 		let $this = $(this);
 		$this.prepend([
 			'<div style="background-image: url(', $this.attr('data-src'), ')"></div>'
 		].join(''));
-	});
+	})
 };
 
 
@@ -119,7 +119,7 @@ let myElement = document.querySelector(`#article${this.id.slice(-1)}-text-below`
         restoreArticles();
         hideArticleText();
         return;
-    };
+    }
 
     fadeArticles();
     hideArticleText();
@@ -141,11 +141,11 @@ let myElement = document.querySelector(`#article${this.id.slice(-1)}-text-below`
         break;
         case "card4":
             $("#article4-text-below").show("slow");
-            scrollToArticle()
+            scrollToArticle();
         break;
     default:
         hideArticleText(); 
-    };
+    }
 });
 
 
@@ -160,8 +160,8 @@ let x = 1;
     for (x = 1;x < 5; x++ ) {
         let myElement = document.querySelector(`#article${x}-text-below`);
         $(myElement).addClass("article-display-hide").hide("slow");
-    };
-}
+    }
+};
         
 
 function fadeArticles() {
