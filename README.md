@@ -30,7 +30,7 @@ The carpousel will adapt to device size so that it doesn't obscure the page on a
 An articles section presents 4 text based articles, history, winners, physics and the future.  
 As an article is selected the appropriate text is scrolled into view, this can be re-hidden or replaced by another article.
 
-A single JSON file supplies all results data for the webite, if this was available externally the site would be truely dynamic, as it is an extra line of data added to the JSON file will keep the site current.
+A single JSON file supplies all results data for the webite, if this was available externally the site would be truely dynamic, as it is an extra line of data each year, added to the JSON file will keep the site current.
 
 A dynamic html table displays the full championship history of winners by nation, rider and make across all the classes for the last 71 years.
 The data in the table can be filtered and sorted by any racing class.
@@ -42,30 +42,29 @@ All race tracks used throughout the championships are displayed on a Google map,
 
 A working contact us form is included with reCaptcha and double email validation to allow feedback and suggestions.
 
-A rudimentary search all facility exists in the fixed navbar.
+A rudimentary search all textual data exists in the fixed navbar.
 
 The theme of the site is based on a black\grey colour mix, reminisent of race track tarmac.  A contrasting bright orange is then used to highlight functionality, in addition this orange is the base colour for the most successful racing team of all time (Honda).
 
 Google font open-sans was chosen as default, it allows clear and easy reading across devices of any size.  In particular the 100 weight was nice against the dark background.  Text displayed is generally off-white as this looks more professional than pure white.
 
-There are navbar menu options to each section and a return link at the bottom or each section.  All scrolling is managed in
-a bit to allow the user to see that they are moving up or down the page.
+There are navbar menu options to each section and a return link at the bottom or each section.  All scrolling is managed in order to allow the user to see that they are moving up or down the page.
 
 ### Features Left to Implement
 
-Implementing a Wikipedia hyperlink from riders, manufacturers, race tracks etc would allow a fan to further research any person or item named on the site.
+Implementing a Wikipedia hyperlinks in this site from riders, manufacturers, race tracks etc would allow a fan to further research any person or item named on the site.
 
 Most recent (last 20 years) grand prix meetings have been televised and many are available on Youtube, a catalogue of these could be displayed, allowing users to see past and present riders in action.
 
 The navbar search facility could build an array of matches and allow the user to select the specific occurance of the match to view.
 
-The navbar search can only find items in the DOM, so when a component is hidden (default for articles) these are not searched, it would be better to allow the textual content to be searched and if a match is found to display this specific article.
+The navbar search can only find items in the DOM, so when a component is hidden (default for articles) these are not searched, it would be better to allow the textual content to be searched and if a match is found to display this specific article or better still add this to a list found references as mentioned above.
+
+The site and in particular the javascript uses a mixture of loops, some of which could be re-written in the more modern ES6 (arrow format).
 
 ## Technologies Used
 
-- [html5](<a href="http://www.w3.org/html/logo/">
-<img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics">
-</a>)
+- [html5](http://www.w3.org/html)
 Building blocks of this site
 
 - [CSS3](https://www.w3.org/Style/CSS/)
@@ -136,24 +135,26 @@ For each of the user stories, specific tests were carried out:
 - As a fan of a rider I want to see their historic achievments so that I will be better informed. 
 *Searched for Barry Sheene, the last UK winner of the premier class, located in the data table - OK*
 - As a fan of a motorcycle make I want to see its historic achievments so that I will be better informed. 
-*Searched Ducati, this is the make I own.  Located in the data table and the makes chart and Ducati's impact on the championships over the years in the Kaizen chart.*
+*Searched Ducati, this is the make I own.  Located in the data table and the makes chart and Ducati's impact on the championships over the years in the Kaizen chart. - OK*
 - As a fan of older motorcycles I want to discover racing history so that I can appreciate my bikes. 
-*As a fan from the 90's onwards I was unaware of the riders in the first decades of this competition, I am now aware.*
+*As a fan from the 90's onwards I was unaware of the riders in the first decades of this competition, I am now aware. - OK*
 - Having heard ex-racers as commentators I want to review their racing history. 
-*Many ex champions turn to commentry after the racing career, all I have come across were located in the data table.*
+*Many ex champions turn to commentry after the racing career, all I have come across were located in the data table. - OK*
 - As a younger or new fan I want to educate myself to the history of GP racing so that I know whom my peers are talking about. 
-*All championship winners are included in the results set, in addition the charts can provide a timeline for the performance of different makes.*
+*All championship winners are included in the results set, in addition the charts can provide a timeline for the performance of different makes. - OK*
 - As a new fan I want to know where the races take place so that I can attend.
-*I have visited multiple Grand Prix on 4 of the tracks, for each I used the Google map and zoomed in to ensure the race track was visible in satelite view, which they were.*
+*I have visited multiple Grand Prix on 4 of the tracks, for each I used the Google map and zoomed in to ensure the race track was visible in satelite view, which they were. - OK*
 - As a long term fan I want to see a specific stat that isn't displayed, I want to be able to request this. 
-*!*
+*! - TBC*
 
 The contact form was tested on several devices, in each case an alert confirmed to the user that the [email](readme/email.jpg) had been sent and thanked them.  Each email was received by myself except when sent from Gitpod as the reCaptcha halted the form submission, the user was informed of this.  Each field is defined a required and testing ensured each was required, the browser highlighting any field that was missing an entry.  
 Additional validation happens to ensure both email input entries are identical (and that the top box conforms to standards), otherwise the submit is cancelled.
 
+The site was submitted to the Code Institute Slack channel but after 24 hours no-one had an opportunity to review this.
+
 ## Deployment
 
-The site resides in [Github](https://github.com/johnmiller1963/motogp) and the master repository is hosted on Gitpages.  
+The site resides in [Github](https://github.com/johnmiller1963/motogp) and the master repository is hosted on [Gitpages](https://johnmiller1963.github.io/motogp/).  
 
 Instructions are shown here [Publishing pages](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
@@ -178,7 +179,7 @@ however if the quota is exceeded a message will be displayed to that effect on t
 ## Credits
 
 The core of the data used for the site was extracted from [Wikipedia](https://en.wikipedia.org/wiki/List_of_Grand_Prix_motorcycle_racing_World_Champions_by_year)
-The race track information was taken from [W(ikipedia](https://en.wikipedia.org/wiki/List_of_Grand_Prix_motorcycle_circuits)
+The race track information was taken from [Wikipedia](https://en.wikipedia.org/wiki/List_of_Grand_Prix_motorcycle_circuits)
 The article titled physics 101 is borrowed from [Owen Edwards of the George Lucas Education Foundation](https://www.edutopia.org/motorcycle-physics)
 The article titled The Future is credited at the top and originated from [Repsol](https://www.boxrepsol.com/en/motogp-en/motogp-2-0-future-technologies-applied-to-motogp) a major sponsor of the championship
 The majority of images are sourced from [Wikimedia Commons](https://commons.wikimedia.org/), license was checked on each image used.
