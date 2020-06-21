@@ -6,7 +6,7 @@ Motorcycling is both a hobby and a passion of mine.  This site represents the jo
 
 Created as a milestone project within my [Code Institute - Full stack web developer course](https://codeinstitute.net/full-stack-software-development-diploma-uk) course, the website demonstrates an interactive front-end.  Using data from a JSON data file interactive components such as results tables, various charts and maps are there to be used by the user who has an interest in Grand Prix motorcycle racing.
 
-[responsive design](<img src=“https://github.com/johnmiller1963/motogp/readme/responsive.jpg” raw=true alt=“How site looks” style=“width: 90%;”>)
+![Image of Site](/readme/responsive.jpg)
 
 ## UX
 
