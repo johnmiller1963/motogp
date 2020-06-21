@@ -167,20 +167,25 @@ Deployment was completed by clicking on the settings tab on my repository then s
 If you wish to run this project locally.
 
 Within the github repository, Click 'Clone or Download'
-Choose your preffered method (Zip or github desktop)
+Choose your preferred method (Zip or github desktop)
 If zipped, then unzip the downloaded file to a convenient location, tested on a Windows desktop
 Inside the root of the 'motogo' folder, double-click index.html
 You may be prompted to select your preferred browser.
 
 Note that the Google reCaptcha is locked to my site so either remove this functionality or add your own API key.
-The Google maps functionality is linked to my API key, a quota is set and if usage stays below the quota the functionality will work fine, 
-however if the quota is exceeded a message will be displayed to that effect on the map.  For best effect replace my API key with on of your own.
+
+The Google maps functionality is linked to my API key, a quota is set and if usage stays below the quota the functionality will work fine, however if the quota is exceeded a message will be displayed to that effect on the map.  For best effect replace my API key with on of your own.
 
 ## Credits
 
-The core of the data used for the site was extracted from [Wikipedia](https://en.wikipedia.org/wiki/List_of_Grand_Prix_motorcycle_racing_World_Champions_by_year)
-The race track information was taken from [Wikipedia](https://en.wikipedia.org/wiki/List_of_Grand_Prix_motorcycle_circuits)
-The article titled physics 101 is borrowed from [Owen Edwards of the George Lucas Education Foundation](https://www.edutopia.org/motorcycle-physics)
-The article titled The Future is credited at the top and originated from [Repsol](https://www.boxrepsol.com/en/motogp-en/motogp-2-0-future-technologies-applied-to-motogp) a major sponsor of the championship
+The core of the data used for the site was extracted from [Wikipedia Grand Prix Racing](https://en.wikipedia.org/wiki/List_of_Grand_Prix_motorcycle_racing_World_Champions_by_year).
+
+The race track information was taken from [Wikipedia Grand Prix Tracks](https://en.wikipedia.org/wiki/List_of_Grand_Prix_motorcycle_circuits).
+
+The article titled physics 101 is borrowed from [Owen Edwards of the George Lucas Education Foundation](https://www.edutopia.org/motorcycle-physics).
+
+The article titled The Future is credited at the top and originated from [Repsol](https://www.boxrepsol.com/en/motogp-en/motogp-2-0-future-technologies-applied-to-motogp) a major sponsor of the championship.
+
 The majority of images are sourced from [Wikimedia Commons](https://commons.wikimedia.org/), license was checked on each image used.
-The logo for [MotoGP](https://www.motogp.com/) is used and at the foot of the page a large image and link to this.  The motoGP Grand Prix championships is run by [Dorna](https://www.dorna.com/)
+
+The logo for [MotoGP](https://www.motogp.com/) is used and at the foot of the page a large image and link to this.  The motoGP Grand Prix championships is run by [Dorna](https://www.dorna.com/).
