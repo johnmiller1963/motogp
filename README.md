@@ -6,7 +6,7 @@ Motorcycling is both a hobby and a passion of mine.  This site represents the jo
 
 Created as a milestone project within my [Code Institute - Full stack web developer course](https://codeinstitute.net/full-stack-software-development-diploma-uk) course, the website demonstrates an interactive front-end.  Using data from a JSON data file interactive components such as results tables, various charts and maps are there to be used by the user who has an interest in Grand Prix motorcycle racing.
 
-[responsive design](<img src=“readme/responsive.jpg” raw=true alt=“How site looks” style=“width: 90%;”>)
+[responsive design](<img src=“https://github.com/johnmiller1963/motogp/blob/master/readme/responsive.jpg” raw=true alt=“How site looks” style=“width: 90%;”>)
 
 ## UX
 
@@ -22,7 +22,7 @@ The sport of Grand Prix motorcycle racing to fast paced and dynamic.  I want the
 
 Wireframes were produced in Balsamiq to display the desired look on [desktop](readme/wf-desktop.pdf) and [mobile](readme/wf-mobile.df), the finished site is represented in the image above across mutiple targetted devices.
 
-## features
+## Features
 
 Dynamic carousel using a large proportion of the top of the page, a random function means the first image shown could be different on each visit.
 The carpousel will adapt to device size so that it doesn't obscure the page on a smaller mobile view.
